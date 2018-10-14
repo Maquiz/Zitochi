@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour {
-    public GameObject a;
+    public GameObject[] ammo;
+    public GameObject currentAmmo;
 
+    private void Start(){
+        currentAmmo = ammo[1];
+    }
 
+    public void switchAmmo(int ammoCode) {
+        currentAmmo = ammo[ammoCode];
+    }
 
-    public void Fire() {
-        Instantiate(a, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
-       
+    public void Fire(Character shooter) {
+        GameObject a =  Instantiate(currentAmmo, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
+        a.GetComponent<Ammo>().shooter = shooter;
     }
 }

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject startPoint;
     public GameObject endPoint;
+    public enum TYPE { FIRE, ICE };
+
     // Use this for initialization
     void Start () {
 		

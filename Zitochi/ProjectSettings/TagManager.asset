@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
+  - powerup
+  - powerShot
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Bullet1
   - Bullet2
   - Trigger
-  - 
+  - PowerUp
   - 
   - 
   - 

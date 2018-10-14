@@ -7,12 +7,17 @@ public class AICharacter :  Character {
     public int moveSpeed = 1;
     public GameObject target;
     public GameObject dEffect;
+    public GameObject l;
 
     void Start(){
         deathEffect = dEffect;
+        hasDrop = true;
+        loot = l;
+
     }
     // Update is called once per frame
     void Update () {
+        //Movement, should be turning when players position changes orientaion
         transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
     }
 }
