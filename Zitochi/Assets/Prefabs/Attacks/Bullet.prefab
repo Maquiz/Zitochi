@@ -95,6 +95,7 @@ MonoBehaviour:
   impactEffect: {fileID: 1929876780485766, guid: 62bc17ad81f130e46b4c5941b8d06ebf,
     type: 2}
   isLooter: 0
+  isParent: 1
 --- !u!212 &212570928473421520
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -51,16 +51,25 @@ public class Character : MonoBehaviour {
         
         //Attack 1
         if (Input.GetButtonDown("Fire1")){
-            weapon.switchAmmo(1);
+            if (type1 == TYPE.EARTH) {
+                weapon.switchAmmo(2);
+            }
+            else{
+                weapon.switchAmmo(1);
+            }
             weapon.Fire(this);
         }
 
         //Attack 2
-        if (type2 == TYPE.WHITE) {
-            if (Input.GetButtonDown("Fire2")){
-                weapon.switchAmmo(0);
-                weapon.Fire(this);
+        if (Input.GetButtonDown("Fire2")){
+            if (type2 == TYPE.WHITE) {
+                weapon.switchAmmo(0);   
             }
+            else if (type1 == TYPE.EARTH && type2 == TYPE.EARTH) {
+                weapon.switchAmmo(3);
+            }
+            weapon.Fire(this);
+
         }
 
         //UI for different Elements, can be written better
@@ -77,6 +86,7 @@ public class Character : MonoBehaviour {
         }
         else if (type1 == TYPE.EARTH){
             element1.sprite = elements[3];
+            type1 = TYPE.EARTH;
         }
         else if (type1 == TYPE.POISION){
             element1.sprite = elements[4];

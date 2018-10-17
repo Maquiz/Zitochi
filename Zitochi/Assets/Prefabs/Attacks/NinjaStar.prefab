@@ -94,6 +94,7 @@ MonoBehaviour:
   speed: 3
   impactEffect: {fileID: 0}
   isLooter: 0
+  isParent: 1
 --- !u!212 &212649709444243606
 SpriteRenderer:
   m_ObjectHideFlags: 1
