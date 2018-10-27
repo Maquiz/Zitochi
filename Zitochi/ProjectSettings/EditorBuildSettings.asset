@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: b98eff473148997498a3f4cf7589af34
+  - enabled: 1
+    path: Assets/Scenes/Rock World 1.unity
+    guid: 2f7bb52b3214dc64f9aa1d7e8a3d2090
+  m_configObjects: {}

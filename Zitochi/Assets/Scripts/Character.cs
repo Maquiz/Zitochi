@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour {
     bool isPlayer;
     public int health;
+    public int maxHealth;
     public float speed;
     public GameObject gun;
     private Weapon weapon;
     private Rigidbody2D body;
     public GameObject deathEffect;
     public GameObject hitEffect;
+    public GameObject HealthBar;
 
     public enum TYPE { WHITE , ICE, FIRE, EARTH, POISION, SPIRIT};
     public TYPE type1, type2;
@@ -44,6 +46,7 @@ public class Character : MonoBehaviour {
         body = gameObject.GetComponent<Rigidbody2D>();
         type1 = TYPE.WHITE;
         type2 = TYPE.WHITE;
+        maxHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -120,14 +123,14 @@ public class Character : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll){
 
         //This is flagging null object reference
-/*        var team = coll.gameObject.GetComponent<Character>()._TEAM;
-        if (team != null)
-        {
-            if (team == Character.TEAM.TEAM2)
-            {
-                takeHit(25, 6f);
+        if (coll.gameObject.GetComponent<AICharacter>() != null){
+            var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
+            if (team != null){
+                if (team == Character.TEAM.TEAM2) {
+                    takeHit(25, 6f);
+                }
             }
-        }*/
+        }
     }
 
 
@@ -184,12 +187,17 @@ public class Character : MonoBehaviour {
         ApplyDamage(d);
         //Opposite of collision
         Instantiate(hitEffect, transform.position, transform.rotation);
-        body.velocity = new Vector2(-10, -10);
+        //body.velocity = new Vector2(-10, -10);
     }
 
     public void ApplyDamage(int d){
         this.health -= d;
-        print("Damage Applied");
+
+        if (HealthBar != null) {
+             Vector3 h = HealthBar.transform.localScale ;
+            h.x  = (float)((float)health / (float)maxHealth);
+            HealthBar.transform.localScale = h;
+        }
         if (health <= 0) {
             kill();
         }
