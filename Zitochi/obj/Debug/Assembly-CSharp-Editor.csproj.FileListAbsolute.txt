@@ -410,3 +410,4 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEdi
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll
+C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.Android.Extensions.dll

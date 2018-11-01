@@ -9,6 +9,7 @@ public class AICharacter :  Character {
     public GameObject dEffect;
     public GameObject l;
     public GameObject h;
+     public bool seePlayer; 
 
     void Start(){
         deathEffect = dEffect;
@@ -16,14 +17,23 @@ public class AICharacter :  Character {
         loot = l;
         maxHealth = health;
         HealthBar = h;
+        seePlayer = false;
 
     }
     // Update is called once per frame
     void Update () {
         //Movement, should be turning when players position changes orientaion
-        if (target != null){
-            transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+        if (seePlayer)
+        {
+            if (target != null)
+            {
+                transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+            }
         }
-       
+
+
     }
+
+
 }
