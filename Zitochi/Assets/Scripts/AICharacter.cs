@@ -18,6 +18,7 @@ public class AICharacter :  Character {
         maxHealth = health;
         HealthBar = h;
         seePlayer = false;
+        target = GameObject.Find("Player");
 
     }
     // Update is called once per frame

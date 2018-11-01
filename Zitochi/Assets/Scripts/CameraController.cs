@@ -9,6 +9,10 @@ public class CameraController : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
     public Transform target;
 
+    private void Start()
+    {
+        target = GameObject.Find("Player").transform;
+    }
     // Update is called once per frame
     void Update()
     {
