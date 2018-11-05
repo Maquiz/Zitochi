@@ -8,6 +8,8 @@ TagManager:
   - powerup
   - powerShot
   - Ground
+  - Bullet1
+  - Breakable
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Trigger
   - PowerUp
   - Ground
-  - 
+  - Breakable
   - 
   - 
   - 

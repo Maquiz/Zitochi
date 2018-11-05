@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114339910678547612}
   m_Layer: 10
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
     type: 2}
   isLooter: 0
   isParent: 1
+  overHead: 0
 --- !u!212 &212570928473421520
 SpriteRenderer:
   m_ObjectHideFlags: 1

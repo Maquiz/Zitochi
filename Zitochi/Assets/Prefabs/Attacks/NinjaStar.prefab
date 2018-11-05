@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114488490314180876}
   m_Layer: 10
   m_Name: NinjaStar
-  m_TagString: Untagged
+  m_TagString: Bullet1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   isLooter: 0
   isParent: 1
+  overHead: 0
 --- !u!212 &212649709444243606
 SpriteRenderer:
   m_ObjectHideFlags: 1

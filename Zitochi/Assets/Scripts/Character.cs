@@ -75,49 +75,11 @@ public class Character : MonoBehaviour {
 
         }
 
-        //UI for different Elements, can be written better
-        //For loop looping through type?
 
-        if (type1 == TYPE.WHITE){
-            element1.sprite = elements[0];
-        }
-        else if (type1 == TYPE.ICE){
-           element1.sprite = elements[1];
-        }
-        else if (type1 == TYPE.FIRE){
-            element1.sprite = elements[2];
-        }
-        else if (type1 == TYPE.EARTH){
-            element1.sprite = elements[3];
-            type1 = TYPE.EARTH;
-        }
-        else if (type1 == TYPE.POISION){
-            element1.sprite = elements[4];
-        }
-        else if (type1 == TYPE.SPIRIT)
-        {
-            element1.sprite = elements[5];
-        }
+        dropPower();
+        checkType();
 
-        if (type2 == TYPE.WHITE){
-            element2.sprite = elements[0];
-        }
-        else if (type2 == TYPE.ICE){
-            element2.sprite = elements[1];
-        }
-        else if (type2 == TYPE.FIRE){
-            element2.sprite = elements[2];
-        }
-        else if (type2 == TYPE.EARTH){
-            element2.sprite = elements[3];
-        }
-        else if (type2 == TYPE.POISION){
-            element2.sprite = elements[4];
-        }
-        else if (type2 == TYPE.SPIRIT)
-        {
-            element2.sprite = elements[5];
-        }
+
     }
 
     void OnCollisionEnter2D(Collision2D coll){
@@ -144,6 +106,20 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public void dropPower() {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (type2 == TYPE.WHITE && type1 != TYPE.WHITE)
+            {
+
+                type1 = TYPE.WHITE;
+            }
+            else if (type2 != TYPE.WHITE)
+            {
+                type2 = TYPE.WHITE;
+            }
+        }
+    }
     public void getPower(TYPE t){
         //Need to switch ammo type here or make a reference to which kind of ammo it is
         if (type1 == TYPE.WHITE)
@@ -165,21 +141,86 @@ public class Character : MonoBehaviour {
             }
         }
         else {
-            if (t == TYPE.FIRE){
+            if (t == TYPE.FIRE)
+            {
                 type2 = TYPE.FIRE;
             }
-            else if (t == TYPE.EARTH){
+            else if (t == TYPE.EARTH)
+            {
                 type2 = TYPE.EARTH;
             }
-            else if (t == TYPE.ICE){
+            else if (t == TYPE.ICE)
+            {
                 type2 = TYPE.ICE;
             }
-            else if (t == TYPE.POISION){
+            else if (t == TYPE.POISION)
+            {
                 type2 = TYPE.POISION;
             }
-            else if (t == TYPE.SPIRIT){
+            else if (t == TYPE.SPIRIT)
+            {
                 type2 = TYPE.SPIRIT;
             }
+            else if (t == TYPE.WHITE)
+            {
+                type2 = TYPE.WHITE;
+            }
+        }
+    }
+
+    //UI for different Elements, can be written better
+    //For loop looping through type?
+    public void checkType() {
+
+        if (type1 == TYPE.WHITE)
+        {
+            element1.sprite = elements[0];
+        }
+        else if (type1 == TYPE.ICE)
+        {
+            element1.sprite = elements[1];
+        }
+        else if (type1 == TYPE.FIRE)
+        {
+            element1.sprite = elements[2];
+        }
+        else if (type1 == TYPE.EARTH)
+        {
+            element1.sprite = elements[3];
+            type1 = TYPE.EARTH;
+        }
+        else if (type1 == TYPE.POISION)
+        {
+            element1.sprite = elements[4];
+        }
+        else if (type1 == TYPE.SPIRIT)
+        {
+            element1.sprite = elements[5];
+        }
+
+        if (type2 == TYPE.WHITE)
+        {
+            element2.sprite = elements[0];
+        }
+        else if (type2 == TYPE.ICE)
+        {
+            element2.sprite = elements[1];
+        }
+        else if (type2 == TYPE.FIRE)
+        {
+            element2.sprite = elements[2];
+        }
+        else if (type2 == TYPE.EARTH)
+        {
+            element2.sprite = elements[3];
+        }
+        else if (type2 == TYPE.POISION)
+        {
+            element2.sprite = elements[4];
+        }
+        else if (type2 == TYPE.SPIRIT)
+        {
+            element2.sprite = elements[5];
         }
     }
 

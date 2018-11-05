@@ -12,6 +12,7 @@ public class Ammo : MonoBehaviour{
     public GameObject impactEffect;
     public bool isLooter;
     public bool isParent;
+    public bool overHead;
    
 
     enum STATE {ALIVE, DEAD, PAUSED};
@@ -44,6 +45,14 @@ public class Ammo : MonoBehaviour{
                 // powerUp(c);
                 Destroy(this.gameObject);
             }
+        }
+        if (coll.gameObject.layer == 15)
+        {
+            BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
+            bg.destroyGround();
+            Destroy(this.gameObject);
+
+
         }
         if (coll.gameObject.tag == "Ground") {
             Instantiate(impactEffect, transform.position, transform.rotation);
