@@ -55,14 +55,20 @@ namespace UnityStandardAssets._2D
                         {
                             jumpCount = 1;
                         }
-                        
+                        jumpCount = 1;
                     }
                     
+            }
+            if (jumpCount == 2 && canDoubleJump == false) {
+                jumpCount = 0;
+                print(jumpCount);
             }
             m_Anim.SetBool("Ground", m_Grounded);
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+            
         }
 
 
@@ -107,14 +113,29 @@ namespace UnityStandardAssets._2D
                 }
             }
             // If the player should jump...
-            if ((m_Grounded && jump && m_Anim.GetBool("Ground")))
+            if ((m_Grounded && jumpCount  == 1 && jump && m_Anim.GetBool("Ground")))
             {
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
+                jumpCount = 2;
+                m_Rigidbody2D.Sleep();
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            }else if (jumpCount == 1 && jump && canDoubleJump) {
+                
+                print("ground jump" +  jumpCount);
+                
+
+            } else if (jumpCount == 1 && !m_Grounded && jump ) {
+                jumpCount = 2;
+                m_Rigidbody2D.Sleep();
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                print("air jump" + jumpCount);
+                
+            }
+            else if (jumpCount == 2 && jump && canDoubleJump) {
+                m_Rigidbody2D.Sleep();
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                print("double jump" + jumpCount);
                 jumpCount = 0;
             }
         }
