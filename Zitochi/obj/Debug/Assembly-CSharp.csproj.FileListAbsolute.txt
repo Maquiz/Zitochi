@@ -336,5 +336,3 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEng
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\Assembly-CSharp.csproj.CopyComplete
-C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.UI.dll
-C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.UI.xml

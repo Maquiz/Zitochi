@@ -24,7 +24,8 @@ public class Ammo : MonoBehaviour{
             var mouse = Input.mousePosition;
             var screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
             dir = new Vector2(mouse.x - screenPoint.x, mouse.y - screenPoint.y);
-            this.transform.Rotate(0, 0, 90);//This needs to be calculated to aim at arrow
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
             this.rb.AddForce(dir.normalized * speed);
     }
 

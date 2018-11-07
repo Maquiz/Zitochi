@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4925599121378748}
   - component: {fileID: 212436674925015176}
   - component: {fileID: 50571681318347894}
-  - component: {fileID: 70302662480467892}
   - component: {fileID: 114432791545408194}
+  - component: {fileID: 58085315603939612}
   m_Layer: 10
   m_Name: Rock Rock Attack
   m_TagString: Bullet1
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668262235577760}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -22.326178, y: -0.45361155, z: 0}
-  m_LocalScale: {x: 8.309927, y: 8.897135, z: 1.5702}
+  m_LocalPosition: {x: 24.993605, y: 8.424172, z: 0}
+  m_LocalScale: {x: 0.51663, y: 0.51663, z: 0.51663}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &70302662480467892
-CapsuleCollider2D:
+--- !u!58 &58085315603939612
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,8 +76,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.16000003, y: 0.16}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 1.9700005
 --- !u!114 &114432791545408194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,8 +132,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.38823533, g: 0.39607847, b: 0.38823533, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e562fcac9a6b5d146aae8f3c6488b27c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
