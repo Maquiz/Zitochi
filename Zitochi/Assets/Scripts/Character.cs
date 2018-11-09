@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour {
-    bool isPlayer;
+    public bool isPlayer;
     public int health;
     public int maxHealth;
     public float speed;
@@ -88,7 +89,7 @@ public class Character : MonoBehaviour {
         if (coll.gameObject.GetComponent<AICharacter>() != null){
             var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
             if (team != null){
-                if (team == Character.TEAM.TEAM2) {
+                if (team == Character.TEAM.TEAM2 && _TEAM != TEAM.TEAM2) {
                     takeHit(25, 6f);
                 }
             }
@@ -99,7 +100,16 @@ public class Character : MonoBehaviour {
     public void kill(){
         _STATE = STATE.DEAD;
         Instantiate(deathEffect, transform.position, transform.rotation);
-        DestroyObject(this.gameObject);
+        if (isPlayer)
+        {
+            //This will be where we deal with players deaths
+            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+        }
+        else {
+            DestroyObject(this.gameObject);
+        }
+       
+        
         //Change Animation
         if (hasDrop) {
             Instantiate(loot, transform.position, transform.rotation);
@@ -111,12 +121,13 @@ public class Character : MonoBehaviour {
         {
             if (type2 == TYPE.WHITE && type1 != TYPE.WHITE)
             {
-
                 type1 = TYPE.WHITE;
+                //Play particle effect for lose of power
             }
             else if (type2 != TYPE.WHITE)
             {
                 type2 = TYPE.WHITE;
+                //Play particle effect for lose of power
             }
         }
     }

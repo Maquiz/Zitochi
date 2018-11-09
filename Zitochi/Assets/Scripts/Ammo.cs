@@ -47,17 +47,21 @@ public class Ammo : MonoBehaviour{
                 Destroy(this.gameObject);
             }
         }
-        if (coll.gameObject.layer == 15)
+        if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot")
         {
             BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
             bg.destroyGround();
-            Destroy(this.gameObject);
-
+           Destroy(this.gameObject);
 
         }
-        if (coll.gameObject.tag == "Ground") {
+        if (coll.gameObject.tag == "Ground")
+        {
             Instantiate(impactEffect, transform.position, transform.rotation);
             print("hit ground");
+            Destroy(this.gameObject);
+        }
+        else {
+            Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }

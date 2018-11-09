@@ -61,16 +61,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatChannel.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatClient.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatDisconnectCause.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatEventCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatOperationCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatParameterCode.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatPeer.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatState.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\ChatUserStatus.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Code\IChatClientListener.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatChannel.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatClient.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatDisconnectCause.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatEventCode.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatOperationCode.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatParameterCode.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatPeer.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatState.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\ChatUserStatus.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonChat\Code\IChatClientListener.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -309,13 +309,13 @@
       <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Art Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/MaxBo/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>

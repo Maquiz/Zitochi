@@ -92,7 +92,7 @@ MonoBehaviour:
   damage: 30
   shooter: {fileID: 0}
   speed: 500
-  impactEffect: {fileID: 1929876780485766, guid: 62bc17ad81f130e46b4c5941b8d06ebf,
+  impactEffect: {fileID: 1203436014591890, guid: 2ded2f1d4919eba41b3fb0dd580bff44,
     type: 2}
   isLooter: 0
   isParent: 1

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50648281885322506}
   - component: {fileID: 114585912905354428}
   - component: {fileID: 58454779060243032}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: WandAttack
   m_TagString: powerShot
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842616150786446}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 144.24323, y: 3.159476, z: 0}
+  m_LocalPosition: {x: 2.1269636, y: 1.0662777, z: 0}
   m_LocalScale: {x: 2.0915802, y: 2.2070458, z: 0.28036}
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   damage: 0
   shooter: {fileID: 0}
   speed: 500
-  impactEffect: {fileID: 1929876780485766, guid: 62bc17ad81f130e46b4c5941b8d06ebf,
+  impactEffect: {fileID: 1934504188981380, guid: 780d8c6bd5b722245b1dc3931f1fd654,
     type: 2}
   isLooter: 1
   isParent: 1
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 54ec27bd0b8a33d4da87e797a5e04170, type: 3}
-  m_Color: {r: 0, g: 0.97935414, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.7741265, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -78,7 +78,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
@@ -112,7 +112,7 @@ MonoBehaviour:
   damage: 15
   shooter: {fileID: 0}
   speed: 1000
-  impactEffect: {fileID: 1929876780485766, guid: 62bc17ad81f130e46b4c5941b8d06ebf,
+  impactEffect: {fileID: 1712995415837496, guid: ea2751f7a02c9c5489d54a97fbd878d9,
     type: 2}
   isLooter: 0
   isParent: 1

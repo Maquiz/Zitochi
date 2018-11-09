@@ -61,21 +61,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\AppSettings.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\ConnectionHandler.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\Extensions.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\FriendInfo.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\LoadBalancingClient.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\LoadbalancingPeer.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\PhotonPing.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\PhotonPingClasses.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\Player.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\Region.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\RegionHandler.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\Room.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\RoomInfo.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\SupportLogger.cs" />
-    <Compile Include="Assets\Photon\PhotonRealtime\Code\WebRpc.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\AppSettings.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\ConnectionHandler.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\Extensions.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\FriendInfo.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\LoadBalancingClient.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\LoadbalancingPeer.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\PhotonPing.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\PhotonPingClasses.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\Player.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\Region.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\RegionHandler.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\Room.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\RoomInfo.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\SupportLogger.cs" />
+    <Compile Include="Assets\Standard Assets\PhotonRealtime\Code\WebRpc.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -314,13 +314,13 @@
       <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Art Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Photon/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/MaxBo/OneDrive/Documents/GitHub/Zitochi/Zitochi/Assets/Standard Assets/PhotonUnityNetworking/Code/Editor/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/MaxBo/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
