@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour {
     public bool isPlayer;
+    public bool isImmune;
     public int health;
     public int maxHealth;
     public float speed;
+
+    public GameObject movement;
+    public CircleCollider2D moveCollide;
     public GameObject gun;
     private Weapon weapon;
     private Rigidbody2D body;
+
     public GameObject deathEffect;
     public GameObject hitEffect;
+
     public GameObject HealthBar;
+    
 
     public enum TYPE { WHITE , ICE, FIRE, EARTH, POISION, SPIRIT};
     public TYPE type1, type2;
@@ -48,6 +55,7 @@ public class Character : MonoBehaviour {
         type1 = TYPE.WHITE;
         type2 = TYPE.WHITE;
         maxHealth = health;
+        movement.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -75,10 +83,13 @@ public class Character : MonoBehaviour {
             weapon.Fire(this);
 
         }
+        //float speed = (transform.position - this.mLastPosition).magnitude / elapsedTime;
+        print("speed " +body.velocity);
 
 
         dropPower();
         checkType();
+        shiftPower();
 
 
     }
@@ -88,7 +99,8 @@ public class Character : MonoBehaviour {
         //This is flagging null object reference
         if (coll.gameObject.GetComponent<AICharacter>() != null){
             var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
-            if (team != null){
+            if (team != null && !isImmune)
+            {
                 if (team == Character.TEAM.TEAM2 && _TEAM != TEAM.TEAM2) {
                     takeHit(25, 6f);
                 }
@@ -129,6 +141,22 @@ public class Character : MonoBehaviour {
                 type2 = TYPE.WHITE;
                 //Play particle effect for lose of power
             }
+        }
+    }
+
+    public void shiftPower()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            print("hit shift");
+            movement.SetActive(true);
+            moveCollide.enabled = true;
+            isImmune = true;
+        }
+        else{
+            movement.SetActive(false);
+            moveCollide.enabled = false;
+            isImmune = false;
         }
     }
     public void getPower(TYPE t){
