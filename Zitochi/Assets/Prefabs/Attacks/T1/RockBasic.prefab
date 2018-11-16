@@ -205,6 +205,9 @@ MonoBehaviour:
   isLooter: 0
   isParent: 1
   overHead: 0
+  team: 1
+  aiAim: 0
+  aimPos: {fileID: 0}
 --- !u!212 &212565033846703444
 SpriteRenderer:
   m_ObjectHideFlags: 1

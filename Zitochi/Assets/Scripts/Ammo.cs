@@ -13,30 +13,51 @@ public class Ammo : MonoBehaviour{
     public bool isLooter;
     public bool isParent;
     public bool overHead;
+    public int team;
+    public bool aiAim;
+    public Transform aimPos;
    
-
     enum STATE {ALIVE, DEAD, PAUSED};
     STATE _STATE;
 
     void Start(){
-            rb = this.GetComponent<Rigidbody2D>();
-            //Shooting twoards the click or touch
+        rb = this.GetComponent<Rigidbody2D>();
+        //Shooting twoards the click or touch
+        if (!aiAim) {
             var mouse = Input.mousePosition;
             var screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
             dir = new Vector2(mouse.x - screenPoint.x, mouse.y - screenPoint.y);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
             this.rb.AddForce(dir.normalized * speed);
+        }
+        else {
+
+            dir = new Vector2(aimPos.position.x - shooter.gameObject.transform.position.x, aimPos.position.y - shooter.gameObject.transform.position.y);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
+            this.rb.AddForce(dir.normalized * speed);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll){
         Character enemy = coll.gameObject.GetComponent<Character>();
-        if(enemy != null) { 
-            if (enemy._TEAM == Character.TEAM.TEAM2){
-                coll.gameObject.SendMessage("ApplyDamage", damage);
-                Instantiate(impactEffect, transform.position, transform.rotation);
-                Destroy(this.gameObject);
+        if(enemy != null) {
+            if (team == 1) {
+                if (enemy._TEAM == Character.TEAM.TEAM2) {
+                    coll.gameObject.SendMessage("ApplyDamage", damage);
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                    Destroy(this.gameObject);
+                }
             }
+            if (team == 2) {
+                if (enemy._TEAM == Character.TEAM.TEAM1) {
+                    coll.gameObject.SendMessage("ApplyDamage", damage);
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                    Destroy(this.gameObject);
+                }
+            }
+
         }
         if (isLooter) {
             if (coll.gameObject.tag == "powerup") {
@@ -47,15 +68,13 @@ public class Ammo : MonoBehaviour{
                 Destroy(this.gameObject);
             }
         }
-        if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot")
-        {
+        if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot") {
             BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
             bg.destroyGround();
            Destroy(this.gameObject);
 
         }
-        if (coll.gameObject.tag == "Ground")
-        {
+        if (coll.gameObject.tag == "Ground") {
             Instantiate(impactEffect, transform.position, transform.rotation);
             print("hit ground");
             Destroy(this.gameObject);
@@ -67,24 +86,26 @@ public class Ammo : MonoBehaviour{
     }
 
     public void powerUp(Consumable.TYPE t) {
-        if (t == Consumable.TYPE.FIRE) {
-            print("hit Fire");
-            shooter.getPower(Character.TYPE.FIRE);
-        }
-        else if (t == Consumable.TYPE.WHITE) {
-            shooter.getPower(Character.TYPE.WHITE);
-        }
-        else if (t == Consumable.TYPE.ICE){
-            shooter.getPower(Character.TYPE.ICE);
-        }
-        else if (t == Consumable.TYPE.EARTH){
-            shooter.getPower(Character.TYPE.EARTH);
-        }
-        else if (t == Consumable.TYPE.POISION){
-            shooter.getPower(Character.TYPE.POISION);
-        }
-        else if (t == Consumable.TYPE.SPIRIT){
-            shooter.getPower(Character.TYPE.SPIRIT);
+        switch (t) {
+            case Consumable.TYPE.FIRE:
+                print("hit Fire");
+                shooter.getPower(Character.TYPE.FIRE);
+                break;
+            case Consumable.TYPE.WHITE:
+                shooter.getPower(Character.TYPE.WHITE);
+                break;
+            case Consumable.TYPE.ICE:
+                shooter.getPower(Character.TYPE.ICE);
+                break;
+            case Consumable.TYPE.EARTH:
+                shooter.getPower(Character.TYPE.EARTH);
+                break;
+            case Consumable.TYPE.POISION:
+                shooter.getPower(Character.TYPE.POISION);
+                break;
+            case Consumable.TYPE.SPIRIT:
+                shooter.getPower(Character.TYPE.SPIRIT);
+                break;
         }
     }
 

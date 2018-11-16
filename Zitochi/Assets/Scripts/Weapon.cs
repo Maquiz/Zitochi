@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Weapon : MonoBehaviour {
     public GameObject[] ammo;
@@ -15,10 +13,26 @@ public class Weapon : MonoBehaviour {
         currentAmmo = ammo[ammoCode];
     }
 
-    public void Fire(Character shooter) {
+    public void AIFire(Character shooter, Transform pos) {
         Ammo am = currentAmmo.GetComponent<Ammo>();
         if (am.overHead)
         {
+            GameObject a = Instantiate(currentAmmo, overHeadSpot.position, Quaternion.identity);
+            a.GetComponent<Ammo>().shooter = shooter;
+            a.GetComponent<Ammo>().aimPos = pos;
+        }
+        else
+        {
+            GameObject a = Instantiate(currentAmmo, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
+            a.GetComponent<Ammo>().shooter = shooter;
+            a.GetComponent<Ammo>().aimPos = pos;
+
+        }
+    }
+
+    public void Fire(Character shooter) {
+        Ammo am = currentAmmo.GetComponent<Ammo>();
+        if (am.overHead) {
             GameObject a = Instantiate(currentAmmo, overHeadSpot.position, Quaternion.identity);
             a.GetComponent<Ammo>().shooter = shooter;
         }
@@ -26,6 +40,5 @@ public class Weapon : MonoBehaviour {
             GameObject a = Instantiate(currentAmmo, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
             a.GetComponent<Ammo>().shooter = shooter;
         }
-
     }
 }

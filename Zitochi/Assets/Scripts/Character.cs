@@ -14,14 +14,13 @@ public class Character : MonoBehaviour {
     public GameObject movement;
     public CircleCollider2D moveCollide;
     public GameObject gun;
-    private Weapon weapon;
+    public Weapon weapon;
     private Rigidbody2D body;
 
     public GameObject deathEffect;
     public GameObject hitEffect;
 
     public GameObject HealthBar;
-    
 
     public enum TYPE { WHITE , ICE, FIRE, EARTH, POISION, SPIRIT};
     public TYPE type1, type2;
@@ -31,9 +30,12 @@ public class Character : MonoBehaviour {
     public bool hasDrop;
     public GameObject loot;
 
+    private IEnumerator coroutine;
+
     public enum TEAM  {TEAM1, TEAM2};
     public TEAM _TEAM;
     enum STATE {ALIVE, DEAD, PAUSED };
+    private bool canShoot2,canShoot1;
     STATE _STATE;
     
 
@@ -55,52 +57,61 @@ public class Character : MonoBehaviour {
         type1 = TYPE.WHITE;
         type2 = TYPE.WHITE;
         maxHealth = health;
-        movement.SetActive(false);
+        if (isPlayer) {
+            canShoot1 = true;
+            canShoot2 = true;
+            movement.SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
-	void Update (){
+	void Update () {
         
         //Attack 1
-        if (Input.GetButtonDown("Fire1")){
+        if (Input.GetButtonDown("Fire1") && canShoot1){
             if (type1 == TYPE.EARTH) {
                 weapon.switchAmmo(2);
+                coroutine = cooldownFire1(0.25f);
+                StartCoroutine(coroutine);
             }
-            else{
+            else {
                 weapon.switchAmmo(1);
+                coroutine = cooldownFire1(0.25f);
+                StartCoroutine(coroutine);
             }
-            weapon.Fire(this);
+            
         }
 
         //Attack 2
-        if (Input.GetButtonDown("Fire2")){
+        if (Input.GetButtonDown("Fire2") && canShoot2) {
             if (type2 == TYPE.WHITE) {
-                weapon.switchAmmo(0);   
+                weapon.switchAmmo(0);
+                coroutine = cooldownFire(0.25f);
+                StartCoroutine(coroutine);
             }
             else if (type1 == TYPE.EARTH && type2 == TYPE.EARTH) {
-                weapon.switchAmmo(3);
-            }
-            weapon.Fire(this);
 
+                weapon.switchAmmo(3);
+                coroutine = cooldownFire(2.0f);
+                StartCoroutine(coroutine);
+            }
         }
         //float speed = (transform.position - this.mLastPosition).magnitude / elapsedTime;
-        print("speed " +body.velocity);
-
-
-        dropPower();
-        checkType();
-        shiftPower();
-
-
+       // print("speed " +body.velocity);
+        
+        if (isPlayer) {
+            checkType();
+            shiftPower();
+            dropPower();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll){
 
         //This is flagging null object reference
-        if (coll.gameObject.GetComponent<AICharacter>() != null){
+        if (coll.gameObject.GetComponent<AICharacter>() != null) {
             var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
-            if (team != null && !isImmune)
-            {
+            if (team != null && !isImmune) {
                 if (team == Character.TEAM.TEAM2 && _TEAM != TEAM.TEAM2) {
                     takeHit(25, 6f);
                 }
@@ -109,7 +120,7 @@ public class Character : MonoBehaviour {
     }
 
 
-    public void kill(){
+    public void kill() {
         _STATE = STATE.DEAD;
         Instantiate(deathEffect, transform.position, transform.rotation);
         if (isPlayer)
@@ -120,7 +131,6 @@ public class Character : MonoBehaviour {
         else {
             DestroyObject(this.gameObject);
         }
-       
         
         //Change Animation
         if (hasDrop) {
@@ -129,137 +139,117 @@ public class Character : MonoBehaviour {
     }
 
     public void dropPower() {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (type2 == TYPE.WHITE && type1 != TYPE.WHITE)
-            {
+        if (Input.GetKeyDown(KeyCode.T)) {
+            if (type2 == TYPE.WHITE && type1 != TYPE.WHITE) {
                 type1 = TYPE.WHITE;
                 //Play particle effect for lose of power
             }
-            else if (type2 != TYPE.WHITE)
-            {
+            else if (type2 != TYPE.WHITE) {
                 type2 = TYPE.WHITE;
                 //Play particle effect for lose of power
             }
         }
     }
 
-    public void shiftPower()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            print("hit shift");
+    public void shiftPower() {
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            //print("hit shift");
             movement.SetActive(true);
             moveCollide.enabled = true;
             isImmune = true;
         }
-        else{
+        else {
             movement.SetActive(false);
             moveCollide.enabled = false;
             isImmune = false;
         }
     }
-    public void getPower(TYPE t){
-        //Need to switch ammo type here or make a reference to which kind of ammo it is
-        if (type1 == TYPE.WHITE)
-        {
-            if (t == TYPE.FIRE){
-                type1 = TYPE.FIRE;
+    public void getPower(TYPE t) {
+        if (type1 == TYPE.WHITE) {
+            switch (t) {
+                case TYPE.FIRE:
+                    type1 = TYPE.FIRE;
+                    break;
+                case TYPE.EARTH:
+                    type1 = TYPE.EARTH;
+                    break;
+                case TYPE.ICE:
+                    type1 = TYPE.ICE;
+                    break;
+                case TYPE.POISION:
+                    type1 = TYPE.POISION;
+                    break;
+                case TYPE.SPIRIT:
+                    type1 = TYPE.SPIRIT;
+                    break;
             }
-            else if (t == TYPE.EARTH){
-                type1 = TYPE.EARTH;
-            }
-            else if (t == TYPE.ICE){
-                type1 = TYPE.ICE;
-            }
-            else if (t == TYPE.POISION){
-                type1 = TYPE.POISION;
-            }
-            else if (t == TYPE.SPIRIT){
-                type1 = TYPE.SPIRIT;
-            }
+ 
         }
         else {
-            if (t == TYPE.FIRE)
+            switch (t)
             {
-                type2 = TYPE.FIRE;
-            }
-            else if (t == TYPE.EARTH)
-            {
-                type2 = TYPE.EARTH;
-            }
-            else if (t == TYPE.ICE)
-            {
-                type2 = TYPE.ICE;
-            }
-            else if (t == TYPE.POISION)
-            {
-                type2 = TYPE.POISION;
-            }
-            else if (t == TYPE.SPIRIT)
-            {
-                type2 = TYPE.SPIRIT;
-            }
-            else if (t == TYPE.WHITE)
-            {
-                type2 = TYPE.WHITE;
+                case TYPE.FIRE:
+                    type2 = TYPE.FIRE;
+                    break;
+                case TYPE.EARTH:
+                    type2 = TYPE.EARTH;
+                    break;
+                case TYPE.ICE:
+                    type2 = TYPE.ICE;
+                    break;
+                case TYPE.POISION:
+                    type2 = TYPE.POISION;
+                    break;
+                case TYPE.SPIRIT:
+                    type2 = TYPE.SPIRIT;
+                    break;
             }
         }
     }
 
-    //UI for different Elements, can be written better
-    //For loop looping through type?
     public void checkType() {
-
-        if (type1 == TYPE.WHITE)
-        {
-            element1.sprite = elements[0];
-        }
-        else if (type1 == TYPE.ICE)
-        {
-            element1.sprite = elements[1];
-        }
-        else if (type1 == TYPE.FIRE)
-        {
-            element1.sprite = elements[2];
-        }
-        else if (type1 == TYPE.EARTH)
-        {
-            element1.sprite = elements[3];
-            type1 = TYPE.EARTH;
-        }
-        else if (type1 == TYPE.POISION)
-        {
-            element1.sprite = elements[4];
-        }
-        else if (type1 == TYPE.SPIRIT)
-        {
-            element1.sprite = elements[5];
+        switch (type1) {
+            case TYPE.WHITE:
+                element1.sprite = elements[0];
+                break;
+            case TYPE.ICE:
+                element1.sprite = elements[1];
+                break;
+            case TYPE.FIRE:
+                element1.sprite = elements[2];
+                break;
+            case TYPE.EARTH:
+                element1.sprite = elements[3];
+                type1 = TYPE.EARTH;
+                break;
+            case TYPE.POISION:
+                element1.sprite = elements[4];
+                break;
+            case TYPE.SPIRIT:
+                element1.sprite = elements[5];
+                break;
         }
 
-        if (type2 == TYPE.WHITE)
-        {
-            element2.sprite = elements[0];
-        }
-        else if (type2 == TYPE.ICE)
-        {
-            element2.sprite = elements[1];
-        }
-        else if (type2 == TYPE.FIRE)
-        {
-            element2.sprite = elements[2];
-        }
-        else if (type2 == TYPE.EARTH)
-        {
-            element2.sprite = elements[3];
-        }
-        else if (type2 == TYPE.POISION)
-        {
-            element2.sprite = elements[4];
-        }
-        else if (type2 == TYPE.SPIRIT)
-        {
-            element2.sprite = elements[5];
+        switch (type2) {
+            case TYPE.WHITE:
+                element2.sprite = elements[0];
+                break;
+            case TYPE.ICE:
+                element2.sprite = elements[1];
+                break;
+            case TYPE.FIRE:
+                element2.sprite = elements[2];
+                break;
+            case TYPE.EARTH:
+                element2.sprite = elements[3];
+                type2 = TYPE.EARTH;
+                break;
+            case TYPE.POISION:
+                element2.sprite = elements[4];
+                break;
+            case TYPE.SPIRIT:
+                element2.sprite = elements[5];
+                break;
         }
     }
 
@@ -285,5 +275,24 @@ public class Character : MonoBehaviour {
 
     public void ApplyEffect(Effect e){
         e.doEffect();
+    }
+
+    private IEnumerator cooldownFire(float time)
+    {
+        canShoot2 = false;
+        //yield return new WaitForSeconds(time);
+        weapon.Fire(this);
+        //print("Coroutine ended: " + Time.time + " seconds");
+        yield return new WaitForSeconds(time);
+        canShoot2 = true;
+    }
+    private IEnumerator cooldownFire1(float time)
+    {
+        canShoot1 = false;
+        //yield return new WaitForSeconds(time);
+        weapon.Fire(this);
+        //print("Coroutine ended: " + Time.time + " seconds");
+        yield return new WaitForSeconds(time);
+        canShoot1 = true;
     }
 }

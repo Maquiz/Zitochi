@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604124367134552}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 26.345964, y: 8.970905, z: 0}
+  m_LocalPosition: {x: 232.43074, y: 31.70779, z: 0}
   m_LocalScale: {x: 2.3450103, y: 2.3450093, z: 2.3450093}
   m_Children:
   - {fileID: 4920759034699838}
@@ -294,27 +294,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9656917a1545d324f8847a68a60460f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
+  isImmune: 0
   health: 100
   maxHealth: 0
   speed: 0
+  movement: {fileID: 0}
+  moveCollide: {fileID: 0}
   gun: {fileID: 0}
-  deathEffect: {fileID: 0}
+  weapon: {fileID: 0}
+  deathEffect: {fileID: 1719890924796424, guid: dd885e671a113684e8c96c19e59fa9b7,
+    type: 2}
   hitEffect: {fileID: 0}
-  HealthBar: {fileID: 0}
+  HealthBar: {fileID: 1029999515247624}
   type1: 0
   type2: 0
   elements: []
   element1: {fileID: 0}
   element2: {fileID: 0}
   hasDrop: 0
-  loot: {fileID: 0}
+  loot: {fileID: 1617869889950052, guid: cd566446f416cf14f98da441c4fc4dc5, type: 2}
   _TEAM: 1
   moveSpeed: 2
   target: {fileID: 0}
-  dEffect: {fileID: 1719890924796424, guid: dd885e671a113684e8c96c19e59fa9b7, type: 2}
-  l: {fileID: 1617869889950052, guid: cd566446f416cf14f98da441c4fc4dc5, type: 2}
-  h: {fileID: 1029999515247624}
+  isShooter: 0
   seePlayer: 0
+  isTower: 0
 --- !u!212 &212058540352384786
 SpriteRenderer:
   m_ObjectHideFlags: 1

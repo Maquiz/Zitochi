@@ -16,4 +16,12 @@ public class SeeEnemey : MonoBehaviour {
             ai.seePlayer = true;
         }
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            ai.seePlayer = false;
+        }
+    }
 }
