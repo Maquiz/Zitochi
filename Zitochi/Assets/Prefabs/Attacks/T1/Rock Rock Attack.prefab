@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
+  lifeTime: 2
   shooter: {fileID: 0}
   speed: 500
   impactEffect: {fileID: 1203436014591890, guid: 2ded2f1d4919eba41b3fb0dd580bff44,

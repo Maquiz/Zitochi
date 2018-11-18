@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212565033846703444}
   - component: {fileID: 50869549226204634}
   - component: {fileID: 114718662837938698}
-  - component: {fileID: 60284155452213456}
   - component: {fileID: 96269544283569134}
+  - component: {fileID: 60934768492006626}
   m_Layer: 10
   m_Name: RockBasic
   m_TagString: Bullet1
@@ -37,13 +37,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779476729307788}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 34.089558, y: 7.4175305, z: 0}
-  m_LocalScale: {x: 1.686379, y: 0.6, z: 0.48735}
+  m_LocalRotation: {x: -0, y: -0, z: 0.90779644, w: -0.41941127}
+  m_LocalPosition: {x: 147.59232, y: 8.785765, z: 0}
+  m_LocalScale: {x: 1.65546, y: 1.830744, z: 0.94916284}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -130.405}
 --- !u!50 &50869549226204634
 Rigidbody2D:
   serializedVersion: 4
@@ -64,7 +64,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &60284155452213456
+--- !u!60 &60934768492006626
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,7 +80,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.5644531, y: 0.6152344}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -88,12 +88,45 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.26999998, y: 0.32}
-      - {x: -0.32, y: 0.32}
-      - {x: -0.32, y: -0.32}
-      - {x: -0.26999998, y: -0.32}
-      - {x: 0.32, y: -0.02}
-      - {x: 0.32, y: 0.03}
+    - - {x: 0.0029296875, y: -0.19238281}
+      - {x: 0.038085938, y: -0.18457031}
+      - {x: 0.06542969, y: -0.18066406}
+      - {x: 0.09667969, y: -0.18261719}
+      - {x: 0.12011719, y: -0.16113281}
+      - {x: 0.17675781, y: -0.13574219}
+      - {x: 0.20019531, y: -0.11230469}
+      - {x: 0.20019531, y: -0.06738281}
+      - {x: 0.20996094, y: -0.043945312}
+      - {x: 0.22167969, y: 0.045898438}
+      - {x: 0.22363281, y: 0.08300781}
+      - {x: 0.22363281, y: 0.12792969}
+      - {x: 0.20214844, y: 0.14550781}
+      - {x: 0.19433594, y: 0.16308594}
+      - {x: 0.19433594, y: 0.19628906}
+      - {x: 0.16113281, y: 0.22949219}
+      - {x: 0.13378906, y: 0.22949219}
+      - {x: 0.09082031, y: 0.22363281}
+      - {x: 0.030273438, y: 0.21972656}
+      - {x: 0.0087890625, y: 0.18457031}
+      - {x: -0.055664062, y: 0.18066406}
+      - {x: -0.11035156, y: 0.15722656}
+      - {x: -0.13964844, y: 0.13183594}
+      - {x: -0.15332031, y: 0.09082031}
+      - {x: -0.16308594, y: 0.057617188}
+      - {x: -0.22363281, y: 0.0146484375}
+      - {x: -0.25097656, y: -0.057617188}
+      - {x: -0.28222656, y: -0.09082031}
+      - {x: -0.28222656, y: -0.10839844}
+      - {x: -0.2763672, y: -0.13183594}
+      - {x: -0.27246094, y: -0.14160156}
+      - {x: -0.22753906, y: -0.16308594}
+      - {x: -0.19433594, y: -0.18261719}
+      - {x: -0.17480469, y: -0.19433594}
+      - {x: -0.15527344, y: -0.20410156}
+      - {x: -0.11816406, y: -0.20410156}
+      - {x: -0.043945312, y: -0.19433594}
+      - {x: -0.0068359375, y: -0.17675781}
+      - {x: -0.0009765625, y: -0.18457031}
 --- !u!96 &96269544283569134
 TrailRenderer:
   serializedVersion: 2
@@ -198,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  lifeTime: 1
   shooter: {fileID: 0}
   speed: 1000
   impactEffect: {fileID: 1712995415837496, guid: ea2751f7a02c9c5489d54a97fbd878d9,
@@ -243,7 +277,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8298935a1e54c8b47a86710bbec323c4, type: 3}
+  m_Sprite: {fileID: 21300104, guid: 74673f9934429b64cb1f34ae3f958274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

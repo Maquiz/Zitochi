@@ -26,6 +26,8 @@ public class Character : MonoBehaviour {
     public TYPE type1, type2;
     public Sprite[] elements;
     public Image element1, element2;
+    public Image cd1, cd2;
+    private float cdt1, cdt2;
 
     public bool hasDrop;
     public GameObject loot;
@@ -50,7 +52,7 @@ public class Character : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start (){
+	void Start () {
         _STATE = STATE.ALIVE;
         weapon = gun.GetComponent<Weapon>();
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -68,9 +70,13 @@ public class Character : MonoBehaviour {
 	void Update () {
         
         //Attack 1
-        if (Input.GetButtonDown("Fire1") && canShoot1){
+        if (Input.GetButtonDown("Fire1") && canShoot1) {
             if (type1 == TYPE.EARTH) {
                 weapon.switchAmmo(2);
+                coroutine = cooldownFire1(0.25f);
+                StartCoroutine(coroutine);
+            } else if (type1 == TYPE.SPIRIT) {
+                weapon.switchAmmo(5);
                 coroutine = cooldownFire1(0.25f);
                 StartCoroutine(coroutine);
             }
@@ -90,10 +96,15 @@ public class Character : MonoBehaviour {
                 StartCoroutine(coroutine);
             }
             else if (type1 == TYPE.EARTH && type2 == TYPE.EARTH) {
-
                 weapon.switchAmmo(3);
                 coroutine = cooldownFire(2.0f);
                 StartCoroutine(coroutine);
+            }
+            else if ((type1 == TYPE.EARTH && type2 == TYPE.SPIRIT) ||(type2 == TYPE.EARTH && type1 == TYPE.SPIRIT)) {
+                weapon.switchAmmo(4);
+                coroutine = cooldownFire(2.0f);
+                StartCoroutine(coroutine);
+
             }
         }
         //float speed = (transform.position - this.mLastPosition).magnitude / elapsedTime;
@@ -104,10 +115,23 @@ public class Character : MonoBehaviour {
             shiftPower();
             dropPower();
         }
+
+        //Cooldown Buttons
+        if (canShoot1 == true) {
+            cd1.fillAmount = 0;
+        }
+        else if (canShoot1 != true) {
+            cd1.fillAmount += 1 / cdt1 * Time.deltaTime;
+        }
+        if (canShoot2 == true) {
+            cd2.fillAmount = 0;
+        }
+        else if (canShoot2 != true) {
+            cd2.fillAmount +=  1/ cdt2 * Time.deltaTime;
+        }
     }
 
-    void OnCollisionEnter2D(Collision2D coll){
-
+    void OnCollisionEnter2D(Collision2D coll) {
         //This is flagging null object reference
         if (coll.gameObject.GetComponent<AICharacter>() != null) {
             var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
@@ -123,8 +147,7 @@ public class Character : MonoBehaviour {
     public void kill() {
         _STATE = STATE.DEAD;
         Instantiate(deathEffect, transform.position, transform.rotation);
-        if (isPlayer)
-        {
+        if (isPlayer) {
             //This will be where we deal with players deaths
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
@@ -257,6 +280,7 @@ public class Character : MonoBehaviour {
         ApplyDamage(d);
         //Opposite of collision
         Instantiate(hitEffect, transform.position, transform.rotation);
+       // body.AddForce(new Vector2(1000f, 1000f));
         //body.velocity = new Vector2(-10, -10);
     }
 
@@ -264,8 +288,11 @@ public class Character : MonoBehaviour {
         this.health -= d;
 
         if (HealthBar != null) {
-             Vector3 h = HealthBar.transform.localScale ;
+            //Issues with health bar scaling above 100
+        
+            Vector3 h = HealthBar.transform.localScale ;
             h.x  = (float)((float)health / (float)maxHealth);
+            print(h.x);
             HealthBar.transform.localScale = h;
         }
         if (health <= 0) {
@@ -277,18 +304,20 @@ public class Character : MonoBehaviour {
         e.doEffect();
     }
 
-    private IEnumerator cooldownFire(float time)
-    {
+    private IEnumerator cooldownFire(float time) {
         canShoot2 = false;
+        cdt2 = time;
         //yield return new WaitForSeconds(time);
         weapon.Fire(this);
         //print("Coroutine ended: " + Time.time + " seconds");
         yield return new WaitForSeconds(time);
         canShoot2 = true;
     }
-    private IEnumerator cooldownFire1(float time)
-    {
+
+    private IEnumerator cooldownFire1(float time) {
         canShoot1 = false;
+        cdt1 = time;
+        //print(time);
         //yield return new WaitForSeconds(time);
         weapon.Fire(this);
         //print("Coroutine ended: " + Time.time + " seconds");

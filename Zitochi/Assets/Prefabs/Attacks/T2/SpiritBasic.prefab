@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  lifeTime: 2
   shooter: {fileID: 0}
   speed: 1000
   impactEffect: {fileID: 1934504188981380, guid: 780d8c6bd5b722245b1dc3931f1fd654,

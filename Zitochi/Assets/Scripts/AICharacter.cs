@@ -10,6 +10,7 @@ public class AICharacter :  Character {
     private IEnumerator coroutine;
     private bool canShoot;
     public bool isTower;
+    private SpriteRenderer charSprite;
 
     void Start(){
         hasDrop = true;
@@ -17,6 +18,7 @@ public class AICharacter :  Character {
         seePlayer = false;
         //Needs to become more generic
         target = GameObject.Find("Player");
+        charSprite = this.GetComponent<SpriteRenderer>();
         canShoot = true;
         if (!isTower) {
             hasDrop = true;
@@ -41,11 +43,14 @@ public class AICharacter :  Character {
                 transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
             }
 
+            //Flipping the character to chase is causing the healthbar to flip
             if (target.transform.position.x >= gameObject.transform.position.x && !isTower) {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                charSprite.flipX = true ;
+               // transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             else if(!isTower){
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                charSprite.flipX = false;
+               // transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
         }
     }

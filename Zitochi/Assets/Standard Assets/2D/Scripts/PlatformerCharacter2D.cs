@@ -21,6 +21,7 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         int jumpCount;
         public bool canDoubleJump;
+        private SpriteRenderer m_charSprite;
 
         private void Awake()
         {
@@ -29,6 +30,7 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            m_charSprite = GetComponent<SpriteRenderer>();
             if (canDoubleJump) {
                 jumpCount = 1;
             }
@@ -61,7 +63,7 @@ namespace UnityStandardAssets._2D
             }
             if (jumpCount == 2 && canDoubleJump == false) {
                 jumpCount = 0;
-                print(jumpCount);
+               // print(jumpCount);
             }
             m_Anim.SetBool("Ground", m_Grounded);
 
@@ -103,13 +105,15 @@ namespace UnityStandardAssets._2D
                 if (move > 0 && !m_FacingRight)
                 {
                     // ... flip the player.
-                    Flip();
+                     Flip();
+                   // m_charSprite.flipX = true;
                 }
                     // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight)
                 {
                     // ... flip the player.
                     Flip();
+                   // m_charSprite.flipX = false;
                 }
             }
             // If the player should jump...
@@ -122,14 +126,14 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.Sleep();
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 
-                print("ground jump" +  jumpCount);
+               // print("ground jump" +  jumpCount);
                 
 
             } else if (jumpCount == 1 && !m_Grounded && jump ) {
                 jumpCount = 2;
                 m_Rigidbody2D.Sleep();
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-                print("air jump" + jumpCount);
+               // print("air jump" + jumpCount);
                 
             }
             else if (jumpCount == 2 && jump && canDoubleJump) {

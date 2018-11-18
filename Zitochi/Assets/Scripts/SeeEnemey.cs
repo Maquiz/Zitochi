@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class SeeEnemey : MonoBehaviour {
     public AICharacter ai;
-	// Use this for initialization
-	void Start () {
-		
-	}
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Player") {
             ai.seePlayer = true;
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
+    public void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "Player") {
             ai.seePlayer = false;
         }
     }

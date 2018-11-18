@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour{
     public int damage;
+    public float lifeTime;
     private float size;
     public Character shooter;
     private Vector2 dir;
@@ -16,7 +17,8 @@ public class Ammo : MonoBehaviour{
     public int team;
     public bool aiAim;
     public Transform aimPos;
-   
+    private IEnumerator coroutine;
+
     enum STATE {ALIVE, DEAD, PAUSED};
     STATE _STATE;
 
@@ -38,6 +40,10 @@ public class Ammo : MonoBehaviour{
             this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
             this.rb.AddForce(dir.normalized * speed);
         }
+
+        coroutine =  lifeSpan(lifeTime);
+        StartCoroutine(coroutine);
+
     }
 
     void OnTriggerEnter2D(Collider2D coll){
@@ -76,7 +82,6 @@ public class Ammo : MonoBehaviour{
         }
         if (coll.gameObject.tag == "Ground") {
             Instantiate(impactEffect, transform.position, transform.rotation);
-            print("hit ground");
             Destroy(this.gameObject);
         }
         else {
@@ -109,7 +114,17 @@ public class Ammo : MonoBehaviour{
         }
     }
 
-    void OnBecameInvisible(){
+
+
+    private IEnumerator lifeSpan(float time)
+    {
+  
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
+       
+    }
+    //Chage to Lifespan instead of destroying once leaving screen
+    void OnBecameInvisible(){
+       // Destroy(gameObject);
     }
 }
