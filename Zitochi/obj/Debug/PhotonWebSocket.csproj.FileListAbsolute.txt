@@ -195,3 +195,4 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonWebSock
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonWebSocket.csproj.CopyComplete
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonWebSocket.dll
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonWebSocket.pdb
+C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ammo : MonoBehaviour{
+public class Ammo : MonoBehaviour {
     public int damage;
     public float lifeTime;
     private float size;
@@ -19,10 +19,10 @@ public class Ammo : MonoBehaviour{
     public Transform aimPos;
     private IEnumerator coroutine;
 
-    enum STATE {ALIVE, DEAD, PAUSED};
+    enum STATE { ALIVE, DEAD, PAUSED };
     STATE _STATE;
 
-    void Start(){
+    void Start() {
         rb = this.GetComponent<Rigidbody2D>();
         //Shooting twoards the click or touch
         if (!aiAim) {
@@ -41,14 +41,14 @@ public class Ammo : MonoBehaviour{
             this.rb.AddForce(dir.normalized * speed);
         }
 
-        coroutine =  lifeSpan(lifeTime);
+        coroutine = lifeSpan(lifeTime);
         StartCoroutine(coroutine);
 
     }
 
-    void OnTriggerEnter2D(Collider2D coll){
+    void OnTriggerEnter2D(Collider2D coll) {
         Character enemy = coll.gameObject.GetComponent<Character>();
-        if(enemy != null) {
+        if (enemy != null) {
             if (team == 1) {
                 if (enemy._TEAM == Character.TEAM.TEAM2) {
                     coll.gameObject.SendMessage("ApplyDamage", damage);
@@ -65,8 +65,13 @@ public class Ammo : MonoBehaviour{
             }
 
         }
-        if (isLooter) {
-            if (coll.gameObject.tag == "powerup") {
+        if (isLooter)
+        {
+             if (this.gameObject.tag == "powerShot" && coll.gameObject.GetComponent<Consumable>().type == Consumable.TYPE.HEAL)
+            {
+                Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+            }
+            else if (coll.gameObject.tag == "powerup") {
                 print("POWERUP" + shooter.name);
                 //On collision tell the shooter what type of element was consummed
                 //Consumable.TYPE c = coll.GetComponent<Consumable>().type;
@@ -77,12 +82,19 @@ public class Ammo : MonoBehaviour{
         if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot") {
             BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
             bg.destroyGround();
-           Destroy(this.gameObject);
+            Destroy(this.gameObject);
 
         }
-        if (coll.gameObject.tag == "Ground") {
+        if (coll.gameObject.tag == "Ground")
+        {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
+        }
+        else if ((coll.gameObject.tag == "Player" && this.gameObject.tag == "powerShot")) {
+
+            Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+        } else if (this.gameObject.tag == "powerShot" && coll.gameObject.GetComponent<Consumable>().type == Consumable.TYPE.HEAL) {
+            Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
         }
         else {
             Instantiate(impactEffect, transform.position, transform.rotation);

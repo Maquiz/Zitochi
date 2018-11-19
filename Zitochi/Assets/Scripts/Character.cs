@@ -285,9 +285,18 @@ public class Character : MonoBehaviour {
     }
 
     public void ApplyDamage(int d){
-        this.health -= d;
+        if (d <= 0)
+        {
+            if (-d + this.health > this.maxHealth)
+            {
 
-        if (HealthBar != null) {
+                d = this.maxHealth - this.health;
+            }
+        }
+
+        this.health -= d;
+     
+       if (HealthBar != null) {
             //Issues with health bar scaling above 100
         
             Vector3 h = HealthBar.transform.localScale ;

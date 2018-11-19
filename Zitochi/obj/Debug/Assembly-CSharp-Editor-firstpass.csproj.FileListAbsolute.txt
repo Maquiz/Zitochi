@@ -419,3 +419,4 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\PhotonUn
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\PhotonUnityNetworking.Editor.pdb
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\Photon3Unity3D.pdb
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\Photon3Unity3D.xml
+C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll

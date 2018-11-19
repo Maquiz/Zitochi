@@ -202,3 +202,4 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNe
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.Utilities.Culling.Editor.csproj.CopyComplete
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.Utilities.Culling.Editor.dll
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.Utilities.Culling.Editor.pdb
+C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll

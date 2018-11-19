@@ -12,6 +12,7 @@ TagManager:
   - Breakable
   - Bullet2
   - Team2
+  - Team1
   layers:
   - Default
   - TransparentFX

@@ -5,36 +5,43 @@ using UnityEngine;
 public class Consumable : MonoBehaviour {
 
     public WayPoint e;
-    public enum TYPE { WHITE, ICE, FIRE, EARTH, POISION, SPIRIT };
+    public enum TYPE { WHITE, ICE, FIRE, EARTH, POISION, SPIRIT,HEAL, COIN , POWER};
     public TYPE type;
     public Sprite[] elements;
-    public SpriteRenderer spriteRender;
+    public bool respawnable;
+    public float lifeTime;
+    private SpriteRenderer spriteRender;
+    private CircleCollider2D _collider;
+    private IEnumerator coroutine;
     // Use this for initialization
     void Start () {
+        
         spriteRender = this.gameObject.GetComponent<SpriteRenderer>();
-        if (type == TYPE.WHITE)
-        {
-            spriteRender.sprite = elements[0];
-        }
-        else if (type == TYPE.ICE)
-        {
-            spriteRender.sprite = elements[1];
-        }
-        else if (type == TYPE.FIRE)
-        {
-            spriteRender.sprite = elements[2];
-        }
-        else if (type == TYPE.EARTH)
-        {
-            spriteRender.sprite = elements[3];
-        }
-        else if (type == TYPE.POISION)
-        {
-            spriteRender.sprite = elements[4];
-        }
-        else if (type == TYPE.SPIRIT)
-        {
-            spriteRender.sprite = elements[5];
+        _collider = this.gameObject.GetComponent<CircleCollider2D>();
+        switch (type) {
+            case TYPE.WHITE:
+                spriteRender.sprite = elements[0];
+                break;
+            case TYPE.ICE:
+                spriteRender.sprite = elements[1];
+                break;
+            case TYPE.FIRE:
+                spriteRender.sprite = elements[2];
+                break;
+            case TYPE.EARTH:
+                spriteRender.sprite = elements[3];
+                break;
+            case TYPE.POISION:
+                spriteRender.sprite = elements[4];
+                break;
+            case TYPE.SPIRIT:
+                spriteRender.sprite = elements[5];
+                break;
+            case TYPE.HEAL:
+                spriteRender.sprite = elements[6];
+                break;
+            case TYPE.POWER:
+                break;
         }
     }
 	
@@ -44,12 +51,33 @@ public class Consumable : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        //  other.gameObject.SendMessage("ApplyEffect", e);
-        if (other.gameObject.tag == "powerShot") {
+        if (this.type == TYPE.HEAL && (other.gameObject.tag == "Bullet1" || other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot"))
+        {
+            Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider, true);
+        }
+        else if (other.gameObject.tag == "powerShot") {
             other.GetComponent<Ammo>().powerUp(type);
             Destroy(this.gameObject);
         }
-     
+        if (this.type == TYPE.POWER && other.gameObject.tag == "Player") {
+            Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider,true);
+        }
+        if (this.type == TYPE.HEAL && other.gameObject.tag == "Player" && type != TYPE.POWER && other.gameObject.GetComponent<Character>().health != other.gameObject.GetComponent<Character>().maxHealth) {
+           
+            other.GetComponent<Character>().ApplyDamage(-50);
+            spriteRender.enabled = false;
+            _collider.enabled = false;
+            coroutine = respawn(lifeTime);
+            StartCoroutine(coroutine);     
+        }
+
+    }
+
+    private IEnumerator respawn(float time) {
+        yield return new WaitForSeconds(time);
+        spriteRender.enabled = true;
+        _collider.enabled = true;
+
     }
 
 }
