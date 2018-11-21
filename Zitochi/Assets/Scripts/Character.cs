@@ -106,6 +106,13 @@ public class Character : MonoBehaviour {
                 StartCoroutine(coroutine);
 
             }
+            else if (type1 == TYPE.SPIRIT && type2 == TYPE.SPIRIT)
+            {
+                weapon.switchAmmo(6);
+                coroutine = cooldownFire(2.0f);
+                StartCoroutine(coroutine);
+
+            }
         }
         //float speed = (transform.position - this.mLastPosition).magnitude / elapsedTime;
        // print("speed " +body.velocity);

@@ -5217,6 +5217,14 @@ Prefab:
       propertyPath: health
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4868616591084366, guid: 6262c9fdb75d56944aeede0c68547499, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749663920230928, guid: 6262c9fdb75d56944aeede0c68547499, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6262c9fdb75d56944aeede0c68547499, type: 2}
   m_IsPrefabAsset: 0
@@ -5964,7 +5972,8 @@ MonoBehaviour:
   e: {fileID: 1021898138}
   type: 0
   elements: []
-  spriteRender: {fileID: 0}
+  respawnable: 0
+  lifeTime: 0
 --- !u!114 &323029275
 MonoBehaviour:
   m_ObjectHideFlags: 0
