@@ -196,4 +196,3 @@ C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNe
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.csproj.CopyComplete
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.dll
 C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\obj\Debug\PhotonUnityNetworking.pdb
-C:\Users\MaxBo\OneDrive\Documents\GitHub\Zitochi\Zitochi\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll

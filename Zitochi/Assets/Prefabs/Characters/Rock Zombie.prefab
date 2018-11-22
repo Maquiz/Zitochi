@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 252414673407552994}
   m_Layer: 9
   m_Name: Rock Zombie
-  m_TagString: Untagged
+  m_TagString: Team2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4050612056286486}
   - component: {fileID: 114319762701525392}
   - component: {fileID: 58439546246170956}
+  - component: {fileID: 61484965134016636}
   m_Layer: 4
   m_Name: Sense
   m_TagString: Untagged
@@ -124,7 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 4654719970501888}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4452803243378950
 Transform:
@@ -137,7 +138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.24999997, z: 1}
   m_Children: []
   m_Father: {fileID: 4654719970501888}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4654719970501888
 Transform:
@@ -147,11 +148,11 @@ Transform:
   m_GameObject: {fileID: 1604124367134552}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 160.27, y: 1.04, z: 0}
-  m_LocalScale: {x: 2.3450103, y: 2.3450093, z: 2.3450093}
+  m_LocalScale: {x: 2.34501, y: 2.34501, z: 2.34501}
   m_Children:
+  - {fileID: 4313462291468920}
   - {fileID: 4452803243378950}
   - {fileID: 4920759034699838}
-  - {fileID: 4313462291468920}
   - {fileID: 4050612056286486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -167,7 +168,7 @@ Transform:
   m_LocalScale: {x: 0.69896185, y: 1.9532827, z: 1}
   m_Children: []
   m_Father: {fileID: 4654719970501888}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 101.271}
 --- !u!50 &50898566427525612
 Rigidbody2D:
@@ -180,14 +181,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58439546246170956
 CircleCollider2D:
@@ -195,7 +196,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858873842336870}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -214,7 +215,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: -0.08}
   m_SpriteTilingProperty:
@@ -228,6 +229,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.14}
+  m_EdgeRadius: 0
+--- !u!61 &61484965134016636
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858873842336870}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.44, y: 1.29}
   m_EdgeRadius: 0
 --- !u!95 &95663595310810930
 Animator:
@@ -253,13 +279,16 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139551497031630}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd4c1b4ef134e9459f221137ffaef54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: []
-  currentAmmo: {fileID: 0}
+  ammo:
+  - {fileID: 1785489475526626, guid: 533882507fef9614e85c29d76d74843d, type: 2}
+  - {fileID: 1785489475526626, guid: 533882507fef9614e85c29d76d74843d, type: 2}
+  currentAmmo: {fileID: 1785489475526626, guid: 533882507fef9614e85c29d76d74843d,
+    type: 2}
   overHeadSpot: {fileID: 0}
 --- !u!114 &114177609377218318
 MonoBehaviour:
@@ -317,8 +346,10 @@ MonoBehaviour:
   speed: 0
   movement: {fileID: 0}
   moveCollide: {fileID: 0}
-  gun: {fileID: 0}
-  weapon: {fileID: 0}
+  gun: {fileID: 1139551497031630}
+  weapon: {fileID: 114076185012735972}
+  target: {fileID: 0}
+  seePlayer: 0
   deathEffect: {fileID: 1719890924796424, guid: dd885e671a113684e8c96c19e59fa9b7,
     type: 2}
   hitEffect: {fileID: 0}
@@ -334,9 +365,7 @@ MonoBehaviour:
   loot: {fileID: 1617869889950052, guid: cd566446f416cf14f98da441c4fc4dc5, type: 2}
   _TEAM: 1
   moveSpeed: 2
-  target: {fileID: 0}
-  isShooter: 0
-  seePlayer: 0
+  isShooter: 1
   isTower: 0
 --- !u!212 &212416466326828606
 SpriteRenderer:
@@ -528,7 +557,7 @@ SurfaceEffector2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604124367134552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2

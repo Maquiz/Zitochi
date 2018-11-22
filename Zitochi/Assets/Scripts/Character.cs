@@ -17,6 +17,9 @@ public class Character : MonoBehaviour {
     public Weapon weapon;
     private Rigidbody2D body;
 
+    public GameObject target;
+    public bool seePlayer;
+
     public GameObject deathEffect;
     public GameObject hitEffect;
 
@@ -144,12 +147,11 @@ public class Character : MonoBehaviour {
             var team = coll.gameObject.GetComponent<AICharacter>()._TEAM;
             if (team != null && !isImmune) {
                 if (team == Character.TEAM.TEAM2 && _TEAM != TEAM.TEAM2) {
-                    takeHit(25, 6f);
+                 //   takeHit(25, 6f);
                 }
             }
         }
     }
-
 
     public void kill() {
         _STATE = STATE.DEAD;
@@ -159,11 +161,12 @@ public class Character : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
         else {
+
             DestroyObject(this.gameObject);
         }
         
         //Change Animation
-        if (hasDrop) {
+        if (hasDrop && loot !=  null) {
             Instantiate(loot, transform.position, transform.rotation);
         }
     }
@@ -308,10 +311,12 @@ public class Character : MonoBehaviour {
         
             Vector3 h = HealthBar.transform.localScale ;
             h.x  = (float)((float)health / (float)maxHealth);
-            print(h.x);
+            print(this.gameObject.name +" health = " + h.x);
             HealthBar.transform.localScale = h;
         }
         if (health <= 0) {
+
+
             kill();
         }
     }

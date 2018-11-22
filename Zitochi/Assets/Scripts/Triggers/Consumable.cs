@@ -18,6 +18,8 @@ public class Consumable : MonoBehaviour {
         
         spriteRender = this.gameObject.GetComponent<SpriteRenderer>();
         _collider = this.gameObject.GetComponent<CircleCollider2D>();
+
+        //Switch art to correct element
         switch (type) {
             case TYPE.WHITE:
                 spriteRender.sprite = elements[0];
@@ -43,41 +45,57 @@ public class Consumable : MonoBehaviour {
             case TYPE.POWER:
                 break;
         }
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
+        //Destroys the power up after a certain amount of time, defaults to 1000 seconds if not changed from 0
+        if (!respawnable) {  
+            if (lifeTime == 0) { lifeTime = 1000; }
+            coroutine = despawn(lifeTime);
+            StartCoroutine(coroutine);
+        }
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (this.type == TYPE.HEAL && (other.gameObject.tag == "Bullet1" || other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot"))
-        {
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        //Attempt at stopping collision with the powerups and players
+        if (this.type != TYPE.HEAL && (collision.gameObject.tag == "Player" || 
+                collision.gameObject.tag == "T1" || collision.gameObject.tag == "T2")) {
+            Physics2D.IgnoreCollision(collision.collider, _collider, true);
+
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (this.type == TYPE.HEAL && (other.gameObject.tag == "Bullet1" || 
+                other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot")) {
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider, true);
         }
         else if (other.gameObject.tag == "powerShot") {
             other.GetComponent<Ammo>().powerUp(type);
             Destroy(this.gameObject);
         }
-        if (this.type == TYPE.POWER && other.gameObject.tag == "Player") {
+        
+        if (this.type != TYPE.HEAL && (other.gameObject.tag == "Player" || 
+                other.gameObject.tag == "T1" || other.gameObject.tag == "T2")) {
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider,true);
         }
-        if (this.type == TYPE.HEAL && other.gameObject.tag == "Player" && type != TYPE.POWER && other.gameObject.GetComponent<Character>().health != other.gameObject.GetComponent<Character>().maxHealth) {
-           
+        if (this.type == TYPE.HEAL && other.gameObject.tag == "Player" && type != TYPE.POWER
+                && other.gameObject.GetComponent<Character>().health != other.gameObject.GetComponent<Character>().maxHealth)  {
             other.GetComponent<Character>().ApplyDamage(-50);
             spriteRender.enabled = false;
             _collider.enabled = false;
             coroutine = respawn(lifeTime);
-            StartCoroutine(coroutine);     
+            StartCoroutine(coroutine);
         }
-
     }
 
     private IEnumerator respawn(float time) {
         yield return new WaitForSeconds(time);
         spriteRender.enabled = true;
         _collider.enabled = true;
+    }
 
+    private IEnumerator despawn(float time) {
+        yield return new WaitForSeconds(time);
+        Destroy(this.gameObject);
     }
 
 }

@@ -7,6 +7,7 @@ public class Ammo : MonoBehaviour {
     public float lifeTime;
     private float size;
     public Character shooter;
+    public AICharacter aiShoot;
     private Vector2 dir;
     private Rigidbody2D rb;
     public float speed;
@@ -39,6 +40,7 @@ public class Ammo : MonoBehaviour {
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
             this.rb.AddForce(dir.normalized * speed);
+            
         }
 
         coroutine = lifeSpan(lifeTime);
@@ -52,6 +54,10 @@ public class Ammo : MonoBehaviour {
             if (team == 1) {
                 if (enemy._TEAM == Character.TEAM.TEAM2) {
                     coll.gameObject.SendMessage("ApplyDamage", damage);
+                    if (coll.gameObject.GetComponent<Character>().health <= 0)
+                    {
+                        shooter.seePlayer = false;
+                    }
                     Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(this.gameObject);
                 }
@@ -59,19 +65,31 @@ public class Ammo : MonoBehaviour {
             if (team == 2) {
                 if (enemy._TEAM == Character.TEAM.TEAM1) {
                     coll.gameObject.SendMessage("ApplyDamage", damage);
+                    if (coll.gameObject.GetComponent<Character>().health <=0) {
+                        shooter.seePlayer = false;
+                    }
                     Instantiate(impactEffect, transform.position, transform.rotation);
                     Destroy(this.gameObject);
+                }
+                if (enemy._TEAM == Character.TEAM.TEAM2)
+                {
+                    Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+
                 }
             }
 
         }
+        Consumable c = coll.gameObject.GetComponent<Consumable>();
         if (isLooter)
         {
-             if (this.gameObject.tag == "powerShot" && coll.gameObject.GetComponent<Consumable>().type == Consumable.TYPE.HEAL)
+
+
+            if (this.gameObject.tag == "powerShot" && c != null && c.type == Consumable.TYPE.HEAL)
             {
                 Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
             }
-            else if (coll.gameObject.tag == "powerup") {
+            else if (coll.gameObject.tag == "powerup")
+            {
                 print("POWERUP" + shooter.name);
                 //On collision tell the shooter what type of element was consummed
                 //Consumable.TYPE c = coll.GetComponent<Consumable>().type;
@@ -79,26 +97,42 @@ public class Ammo : MonoBehaviour {
                 Destroy(this.gameObject);
             }
         }
-        if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot") {
-            BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
-            bg.destroyGround();
-            Destroy(this.gameObject);
-
-        }
-        if (coll.gameObject.tag == "Ground")
+        else
         {
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            Destroy(this.gameObject);
-        }
-        else if ((coll.gameObject.tag == "Player" && this.gameObject.tag == "powerShot")) {
+            if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot")
+            {
+                BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
+                bg.destroyGround();
+                Destroy(this.gameObject);
 
-            Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
-        } else if (this.gameObject.tag == "powerShot" && coll.gameObject.GetComponent<Consumable>().type == Consumable.TYPE.HEAL) {
-            Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
-        }
-        else {
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            }
+
+            if (coll.gameObject.tag == "Ground")
+            {
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
+            else if ((coll.gameObject.tag == "Player" && this.gameObject.tag == "powerShot"))
+            {
+
+                Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+            }
+
+            else if (this.gameObject.tag == "powerShot" && c != null && c.type == Consumable.TYPE.HEAL)
+            {
+                Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+            }
+            else if (coll.gameObject.name == "Range")
+            {
+                Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+
+            }
+            else
+            {
+                //  print(coll.gameObject.name);
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
         }
     }
 
