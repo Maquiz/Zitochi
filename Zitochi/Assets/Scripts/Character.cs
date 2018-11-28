@@ -61,6 +61,7 @@ public class Character : MonoBehaviour {
         body = gameObject.GetComponent<Rigidbody2D>();
         type1 = TYPE.WHITE;
         type2 = TYPE.WHITE;
+        
         maxHealth = health;
         if (isPlayer) {
             canShoot1 = true;

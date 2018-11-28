@@ -37,6 +37,7 @@ public class Ammo : MonoBehaviour {
         else {
 
             dir = new Vector2(aimPos.position.x - shooter.gameObject.transform.position.x, aimPos.position.y - shooter.gameObject.transform.position.y);
+            print(shooter.gameObject.name);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             this.transform.Rotate(0, 0, angle);//This needs to be calculated to aim at arrow
             this.rb.AddForce(dir.normalized * speed);
@@ -159,8 +160,6 @@ public class Ammo : MonoBehaviour {
                 break;
         }
     }
-
-
 
     private IEnumerator lifeSpan(float time)
     {

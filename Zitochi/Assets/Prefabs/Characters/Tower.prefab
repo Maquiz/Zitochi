@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4420829576223232}
   - component: {fileID: 61444061581003172}
   - component: {fileID: 114295515014952846}
+  - component: {fileID: 95451289692904086}
   m_Layer: 4
   m_Name: Range
   m_TagString: Untagged
@@ -302,6 +303,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.97, y: 14.4}
   m_EdgeRadius: 0
+--- !u!95 &95451289692904086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122111611391572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62a7637b0a7100948af574af102efe71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114117123244793532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +359,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 114755641499663626}
+  anim: {fileID: 95451289692904086}
+  see: {fileID: 0}
+  close: {fileID: 0}
 --- !u!114 &114607087848431706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,6 +395,8 @@ MonoBehaviour:
   moveCollide: {fileID: 0}
   gun: {fileID: 1661753133998504}
   weapon: {fileID: 114803661250460586}
+  target: {fileID: 0}
+  seePlayer: 0
   deathEffect: {fileID: 1719890924796424, guid: dd885e671a113684e8c96c19e59fa9b7,
     type: 2}
   hitEffect: {fileID: 0}
@@ -388,10 +412,12 @@ MonoBehaviour:
   loot: {fileID: 0}
   _TEAM: 1
   moveSpeed: 0
-  target: {fileID: 0}
   isShooter: 1
-  seePlayer: 0
   isTower: 1
+  _aiController: {fileID: 0}
+  _isCreep: 0
+  _cooldown: 0.5
+  goals: []
 --- !u!114 &114803661250460586
 MonoBehaviour:
   m_ObjectHideFlags: 1

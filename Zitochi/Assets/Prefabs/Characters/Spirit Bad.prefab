@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4309551284332890}
   - component: {fileID: 58945836541132470}
   - component: {fileID: 114524367154430060}
+  - component: {fileID: 95336240054413784}
   m_Layer: 4
-  m_Name: GameObject
+  m_Name: Sense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425738353914418}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 136.50827, y: 17.0752, z: 0}
+  m_LocalPosition: {x: 161.5047, y: 30.077818, z: 0}
   m_LocalScale: {x: 2.3450103, y: 2.3450093, z: 2.3450093}
   m_Children:
   - {fileID: 4295291918531988}
@@ -228,6 +229,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.14}
   m_EdgeRadius: 0
+--- !u!95 &95336240054413784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285524203049786}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62a7637b0a7100948af574af102efe71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95589268145387538
 Animator:
   serializedVersion: 3
@@ -279,6 +298,8 @@ MonoBehaviour:
   moveCollide: {fileID: 0}
   gun: {fileID: 1518640950358810}
   weapon: {fileID: 114824023481832596}
+  target: {fileID: 0}
+  seePlayer: 0
   deathEffect: {fileID: 100002, guid: e27bfc154dd5fdb4697ac547997f4c95, type: 2}
   hitEffect: {fileID: 0}
   HealthBar: {fileID: 1555714419854002}
@@ -293,10 +314,12 @@ MonoBehaviour:
   loot: {fileID: 1292276570759098, guid: 4ab2c7cd16b0f2f47a9fd213a22d6476, type: 2}
   _TEAM: 1
   moveSpeed: 1
-  target: {fileID: 0}
   isShooter: 1
-  seePlayer: 0
   isTower: 0
+  _aiController: {fileID: 0}
+  _isCreep: 0
+  _cooldown: 2
+  goals: []
 --- !u!114 &114524367154430060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 114328604305291180}
+  anim: {fileID: 95336240054413784}
+  see: {fileID: 0}
+  close: {fileID: 0}
 --- !u!114 &114775706591082454
 MonoBehaviour:
   m_ObjectHideFlags: 1

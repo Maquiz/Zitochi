@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 114319762701525392}
   - component: {fileID: 58439546246170956}
   - component: {fileID: 61484965134016636}
+  - component: {fileID: 61416372818714698}
+  - component: {fileID: 95124394430481266}
   m_Layer: 4
   m_Name: Sense
   m_TagString: Untagged
@@ -147,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604124367134552}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 160.27, y: 1.04, z: 0}
+  m_LocalPosition: {x: 174.45, y: 0.67, z: 0}
   m_LocalScale: {x: 2.34501, y: 2.34501, z: 2.34501}
   m_Children:
   - {fileID: 4313462291468920}
@@ -230,6 +232,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.14}
   m_EdgeRadius: 0
+--- !u!61 &61416372818714698
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858873842336870}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.29}
+  m_EdgeRadius: 0
 --- !u!61 &61484965134016636
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -255,6 +282,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.44, y: 1.29}
   m_EdgeRadius: 0
+--- !u!95 &95124394430481266
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858873842336870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62a7637b0a7100948af574af102efe71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95663595310810930
 Animator:
   serializedVersion: 3
@@ -315,6 +360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 114942472946130784}
+  anim: {fileID: 95124394430481266}
+  see: {fileID: 0}
+  close: {fileID: 0}
 --- !u!114 &114716526224894780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +415,12 @@ MonoBehaviour:
   moveSpeed: 2
   isShooter: 1
   isTower: 0
+  _aiController: {fileID: 95663595310810930}
+  _isCreep: 1
+  _cooldown: 2
+  goals:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &212416466326828606
 SpriteRenderer:
   m_ObjectHideFlags: 1

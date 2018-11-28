@@ -6,16 +6,33 @@ public class AICharacter :  Character {
     public int moveSpeed = 1;
   
     public bool isShooter;
-
+   
     private IEnumerator coroutine;
     private bool canShoot;
     public bool isTower;
     private SpriteRenderer charSprite;
+    public Animator _aiController;
+    public bool _isCreep;
+    public float _cooldown;
+
+    public GameObject[] goals;
+    private GameObject goal;
 
     void Start(){
         hasDrop = true;
         maxHealth = health;
         seePlayer = false;
+        if (_isCreep)
+        {
+            if (_TEAM == TEAM.TEAM1)
+            {
+                goal = goals[1];
+            }
+            else
+            {
+                goal = goals[0];
+            }
+        }
         //Needs to become more generic
        // target = GameObject.Find("Player");
         charSprite = this.GetComponent<SpriteRenderer>();
@@ -29,7 +46,15 @@ public class AICharacter :  Character {
 
     // Update is called once per frame
     void Update () {
-        //Movement, should be turning when players position changes orientaion
+
+        if ( _isCreep && (_aiController.GetBool("SeeEnemy") == false || _aiController.GetBool("CloseToEnemy") == false))
+        {
+
+            //Move Towards target
+            transform.position += (goal.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+
+        }
         if (target != null)
         {
             if (health < maxHealth && target != null)
@@ -39,21 +64,24 @@ public class AICharacter :  Character {
             if (seePlayer)
             {
 
+
                 if (isShooter && canShoot)
                 {
-                    //Calling to many times. Need a cooldown or way to stagger shots.
-                    //The bullets were hitting themselves.
-                    coroutine = cooldown(2.0f);
+       
+                    //Need to make cooldown more dynamic
+                    coroutine = cooldown(_cooldown);
                     StartCoroutine(coroutine);
-                    print(target.gameObject.name);
+                    print(this.name +  " sees " + target.gameObject.name);
                 }
 
                 if (target != null)
                 {
+                    //Move Towards target
                     transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
                 }
                 else
                 {
+
                     transform.position += new Vector3(-1f, 0f).normalized * moveSpeed * Time.deltaTime;
                 }
 
