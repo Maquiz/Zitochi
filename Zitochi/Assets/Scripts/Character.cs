@@ -301,11 +301,14 @@ public class Character : MonoBehaviour {
             if (-d + this.health > this.maxHealth)
             {
 
-                d = this.maxHealth - this.health;
+                this.health += this.maxHealth - this.health;
             }
         }
+        else {
+            this.health -= d;
+        }
 
-        this.health -= d;
+        
      
        if (HealthBar != null) {
             //Issues with health bar scaling above 100

@@ -74,10 +74,10 @@ public class Consumable : MonoBehaviour {
         }
         
         if (this.type != TYPE.HEAL && (other.gameObject.tag == "Player" || 
-                other.gameObject.tag == "T1" || other.gameObject.tag == "T2")) {
+                other.gameObject.tag == "Team1" || other.gameObject.tag == "Team2")) {
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider,true);
         }
-        if (this.type == TYPE.HEAL && other.gameObject.tag == "Player" && type != TYPE.POWER
+        if (this.type == TYPE.HEAL && (other.gameObject.tag == "Team1" || other.gameObject.tag == "Team2") && type != TYPE.POWER
                 && other.gameObject.GetComponent<Character>().health != other.gameObject.GetComponent<Character>().maxHealth)  {
             other.GetComponent<Character>().ApplyDamage(-50);
             spriteRender.enabled = false;

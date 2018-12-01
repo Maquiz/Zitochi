@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AICharacter :  Character {
@@ -15,15 +16,18 @@ public class AICharacter :  Character {
     public bool _isCreep;
     public float _cooldown;
 
-    public GameObject[] goals;
+    public List<GameObject> goals;
     private GameObject goal;
 
     void Start(){
         hasDrop = true;
         maxHealth = health;
         seePlayer = false;
+ 
         if (_isCreep)
         {
+            goals.Add( GameObject.FindGameObjectWithTag("goal1"));
+            goals.Add(GameObject.FindGameObjectWithTag("goal2"));
             if (_TEAM == TEAM.TEAM1)
             {
                 goal = goals[1];
@@ -81,7 +85,6 @@ public class AICharacter :  Character {
                 }
                 else
                 {
-
                     transform.position += new Vector3(-1f, 0f).normalized * moveSpeed * Time.deltaTime;
                 }
 
@@ -96,11 +99,6 @@ public class AICharacter :  Character {
                     charSprite.flipX = false;
                     // transform.localRotation = Quaternion.Euler(0, 180, 0);
                 }
-                else
-                {
-
-                }
-
             }
         }
     }

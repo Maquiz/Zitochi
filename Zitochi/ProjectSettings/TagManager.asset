@@ -13,6 +13,8 @@ TagManager:
   - Bullet2
   - Team2
   - Team1
+  - goal1
+  - goal2
   layers:
   - Default
   - TransparentFX

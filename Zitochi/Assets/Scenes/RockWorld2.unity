@@ -16332,6 +16332,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114942472946130784, guid: 683a196586a1140429e8bda7bc6b73ba,
+        type: 2}
+      propertyPath: _isCreep
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 683a196586a1140429e8bda7bc6b73ba, type: 2}
   m_IsPrefabAsset: 0
@@ -25368,6 +25373,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114942472946130784, guid: 683a196586a1140429e8bda7bc6b73ba,
+        type: 2}
+      propertyPath: _isCreep
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 683a196586a1140429e8bda7bc6b73ba, type: 2}
   m_IsPrefabAsset: 0
@@ -28311,6 +28321,11 @@ Prefab:
     - target: {fileID: 1604124367134552, guid: 683a196586a1140429e8bda7bc6b73ba, type: 2}
       propertyPath: m_Name
       value: Rock Zombie (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942472946130784, guid: 683a196586a1140429e8bda7bc6b73ba,
+        type: 2}
+      propertyPath: _isCreep
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 683a196586a1140429e8bda7bc6b73ba, type: 2}
