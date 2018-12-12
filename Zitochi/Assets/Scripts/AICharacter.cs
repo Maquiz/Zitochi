@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AICharacter :  Character {
-    // Use this for initialization
+
     public int moveSpeed = 1;
-  
     public bool isShooter;
    
     private IEnumerator coroutine;
@@ -51,16 +50,12 @@ public class AICharacter :  Character {
     // Update is called once per frame
     void Update () {
 
-        if ( _isCreep && (_aiController.GetBool("SeeEnemy") == false || _aiController.GetBool("CloseToEnemy") == false))
-        {
-
+        if ( _isCreep && (_aiController.GetBool("SeeEnemy") == false || _aiController.GetBool("CloseToEnemy") == false)) {
             //Move Towards target
             transform.position += (goal.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
 
-
         }
-        if (target != null)
-        {
+        if (target != null) {
             if (health < maxHealth && target != null)
             {
                 seePlayer = true;
