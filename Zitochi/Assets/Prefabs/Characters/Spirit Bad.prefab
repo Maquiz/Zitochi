@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 58945836541132470}
   - component: {fileID: 114524367154430060}
   - component: {fileID: 95336240054413784}
+  - component: {fileID: 61385341815434558}
   m_Layer: 4
   m_Name: Sense
   m_TagString: Untagged
@@ -107,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425738353914418}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 161.5047, y: 30.077818, z: 0}
+  m_LocalPosition: {x: 136.50827, y: 17.0752, z: 0}
   m_LocalScale: {x: 2.3450103, y: 2.3450093, z: 2.3450093}
   m_Children:
   - {fileID: 4295291918531988}
@@ -195,7 +196,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1285524203049786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -204,6 +205,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.28
+--- !u!61 &61385341815434558
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285524203049786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.63, y: 3.22}
+  m_EdgeRadius: 0
 --- !u!61 &61684943250694142
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -335,6 +361,7 @@ MonoBehaviour:
   anim: {fileID: 95336240054413784}
   see: {fileID: 0}
   close: {fileID: 0}
+  enemies: []
 --- !u!114 &114775706591082454
 MonoBehaviour:
   m_ObjectHideFlags: 1

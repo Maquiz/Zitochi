@@ -11,11 +11,6 @@ public class SpawnCreep : MonoBehaviour {
         coroutine = Spawn(15f);
         StartCoroutine(coroutine);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-    }
 
     private IEnumerator Spawn(float time)
     {

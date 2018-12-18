@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604124367134552}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 174.45, y: 0.67, z: 0}
+  m_LocalPosition: {x: 73.85222, y: 5.873148, z: 0}
   m_LocalScale: {x: 2.34501, y: 2.34501, z: 2.34501}
   m_Children:
   - {fileID: 4313462291468920}
@@ -280,7 +280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.44, y: 1.29}
+  m_Size: {x: 15, y: 4}
   m_EdgeRadius: 0
 --- !u!95 &95124394430481266
 Animator:
@@ -363,6 +363,7 @@ MonoBehaviour:
   anim: {fileID: 95124394430481266}
   see: {fileID: 0}
   close: {fileID: 0}
+  enemies: []
 --- !u!114 &114716526224894780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,7 +417,7 @@ MonoBehaviour:
   isShooter: 1
   isTower: 0
   _aiController: {fileID: 95663595310810930}
-  _isCreep: 1
+  _isCreep: 0
   _cooldown: 2
   goals: []
 --- !u!212 &212416466326828606

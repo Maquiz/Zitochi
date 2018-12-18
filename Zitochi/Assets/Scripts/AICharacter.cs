@@ -22,7 +22,9 @@ public class AICharacter :  Character {
         hasDrop = true;
         maxHealth = health;
         seePlayer = false;
- 
+        //Needs to become more generic
+        charSprite = this.GetComponent<SpriteRenderer>();
+        canShoot = true;
         if (_isCreep)
         {
             goals.Add( GameObject.FindGameObjectWithTag("goal1"));
@@ -34,12 +36,11 @@ public class AICharacter :  Character {
             else
             {
                 goal = goals[0];
+                charSprite.flipX = true;
+
             }
         }
-        //Needs to become more generic
-       // target = GameObject.Find("Player");
-        charSprite = this.GetComponent<SpriteRenderer>();
-        canShoot = true;
+    
        // weapon = gun.GetComponent<Weapon>();
         if (!isTower) {
             hasDrop = true;
@@ -52,6 +53,7 @@ public class AICharacter :  Character {
 
         if ( _isCreep && (_aiController.GetBool("SeeEnemy") == false || _aiController.GetBool("CloseToEnemy") == false)) {
             //Move Towards target
+            
             transform.position += (goal.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
 
         }
@@ -83,8 +85,8 @@ public class AICharacter :  Character {
                     transform.position += new Vector3(-1f, 0f).normalized * moveSpeed * Time.deltaTime;
                 }
 
-                //Flipping the character to chase is causing the healthbar to flip
-                if (target.transform.position.x >= gameObject.transform.position.x && !isTower)
+                
+                if (target.transform.position.x >= gameObject.transform.position.x && !isTower )
                 {
                     charSprite.flipX = true;
                     // transform.localRotation = Quaternion.Euler(0, 0, 0);

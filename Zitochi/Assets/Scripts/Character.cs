@@ -315,7 +315,7 @@ public class Character : MonoBehaviour {
         
             Vector3 h = HealthBar.transform.localScale ;
             h.x  = (float)((float)health / (float)maxHealth);
-            print(this.gameObject.name +" health = " + h.x);
+           // print(this.gameObject.name +" health = " + h.x);
             HealthBar.transform.localScale = h;
         }
         if (health <= 0) {
