@@ -340,7 +340,7 @@ MonoBehaviour:
   weapon: {fileID: 114781871429794590}
   target: {fileID: 0}
   seePlayer: 0
-  deathEffect: {fileID: 1719890924796424, guid: dd885e671a113684e8c96c19e59fa9b7,
+  deathEffect: {fileID: 1236976031861218, guid: 6da4666285e6d1e469fecb19e5dacebc,
     type: 2}
   hitEffect: {fileID: 0}
   HealthBar: {fileID: 1789829987705484}
