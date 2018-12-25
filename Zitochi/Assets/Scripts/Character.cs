@@ -72,6 +72,8 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //CoolDowns
         
         //Attack 1
         if (Input.GetButtonDown("Fire1") && canShoot1) {
@@ -101,7 +103,7 @@ public class Character : MonoBehaviour {
             }
             else if (type1 == TYPE.EARTH && type2 == TYPE.EARTH) {
                 weapon.switchAmmo(3);
-                coroutine = cooldownFire(2.0f);
+                coroutine = cooldownFire(1.5f);
                 StartCoroutine(coroutine);
             }
             else if ((type1 == TYPE.EARTH && type2 == TYPE.SPIRIT) ||(type2 == TYPE.EARTH && type1 == TYPE.SPIRIT)) {

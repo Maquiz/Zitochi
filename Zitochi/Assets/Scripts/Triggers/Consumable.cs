@@ -13,6 +13,7 @@ public class Consumable : MonoBehaviour {
     private SpriteRenderer spriteRender;
     private CircleCollider2D _collider;
     private IEnumerator coroutine;
+    public GameObject consumeEffect;
     // Use this for initialization
     void Start () {
         
@@ -42,6 +43,9 @@ public class Consumable : MonoBehaviour {
             case TYPE.HEAL:
                 spriteRender.sprite = elements[6];
                 break;
+            case TYPE.COIN:
+                spriteRender.sprite = elements[7];
+                break; 
             case TYPE.POWER:
                 break;
         }
@@ -64,8 +68,14 @@ public class Consumable : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (this.type == TYPE.HEAL && (other.gameObject.tag == "Bullet1" || 
-                other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot")) {
+        if (this.type == TYPE.COIN && (other.gameObject.tag == "Team1" || other.gameObject.tag == "Team2"))
+        {
+            print("Got  a Crystal");
+            Instantiate(consumeEffect, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
+        if ((this.type == TYPE.HEAL || this.type== TYPE.COIN) && (other.gameObject.tag == "Bullet1" || 
+                other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot") ){
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider, true);
         }
         else if (other.gameObject.tag == "powerShot") {
@@ -86,6 +96,8 @@ public class Consumable : MonoBehaviour {
             coroutine = respawn(lifeTime);
             StartCoroutine(coroutine);
         }
+
+    
     }
 
     private IEnumerator respawn(float time) {

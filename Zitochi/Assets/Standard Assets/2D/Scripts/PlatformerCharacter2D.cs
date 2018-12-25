@@ -22,6 +22,9 @@ namespace UnityStandardAssets._2D
         int jumpCount;
         public bool canDoubleJump;
         private SpriteRenderer m_charSprite;
+        public GameObject dustEffect, jumpeffect;
+        private bool spawnDust;
+       
 
         private void Awake()
         {
@@ -71,6 +74,21 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
 
             
+        }
+
+        private void Update()
+        {
+            if (m_Grounded)
+            {
+                if (spawnDust)
+                {
+                    Instantiate(dustEffect, m_GroundCheck.position, Quaternion.identity);
+                    spawnDust = false;
+                }
+            }
+            else {
+                spawnDust = true;
+            }
         }
 
 
@@ -132,6 +150,7 @@ namespace UnityStandardAssets._2D
             } else if (jumpCount == 1 && !m_Grounded && jump ) {
                 jumpCount = 2;
                 m_Rigidbody2D.Sleep();
+                Instantiate(jumpeffect, m_Rigidbody2D.transform.position, Quaternion.identity);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                // print("air jump" + jumpCount);
                 
@@ -139,6 +158,7 @@ namespace UnityStandardAssets._2D
             else if (jumpCount == 2 && jump && canDoubleJump) {
                 m_Rigidbody2D.Sleep();
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                Instantiate(jumpeffect, m_Rigidbody2D.transform.position, Quaternion.identity);
                 print("double jump" + jumpCount);
                 jumpCount = 0;
             }

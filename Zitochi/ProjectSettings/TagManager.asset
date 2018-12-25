@@ -15,6 +15,7 @@ TagManager:
   - Team1
   - goal1
   - goal2
+  - Danger
   layers:
   - Default
   - TransparentFX

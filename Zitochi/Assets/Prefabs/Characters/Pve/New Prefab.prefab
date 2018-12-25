@@ -125,8 +125,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817771520933760}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 65.43, y: 6.02, z: 0}
-  m_LocalScale: {x: 0.7426178, y: 0.7426178, z: 0.7426178}
+  m_LocalPosition: {x: 166.99, y: 6.02, z: 0}
+  m_LocalScale: {x: 0.74262, y: 0.74262, z: 0.74262}
   m_Children:
   - {fileID: 4169957930549022}
   - {fileID: 4641645970245136}
@@ -184,9 +184,9 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 2
-  m_LinearDrag: 0
+  m_UseAutoMass: 1
+  m_Mass: 4.239482
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 0cb77231a430b454fb792ff7ffcc3943, type: 2}
@@ -355,8 +355,7 @@ MonoBehaviour:
   weapon: {fileID: 114558169603978716}
   target: {fileID: 0}
   seePlayer: 0
-  deathEffect: {fileID: 1203436014591890, guid: 2ded2f1d4919eba41b3fb0dd580bff44,
-    type: 2}
+  deathEffect: {fileID: 100000, guid: eabed9636829a29488c587e1aea81b4d, type: 2}
   hitEffect: {fileID: 0}
   HealthBar: {fileID: 1378516185393244}
   type1: 0
@@ -366,8 +365,8 @@ MonoBehaviour:
   element2: {fileID: 0}
   cd1: {fileID: 0}
   cd2: {fileID: 0}
-  hasDrop: 0
-  loot: {fileID: 1617869889950052, guid: cd566446f416cf14f98da441c4fc4dc5, type: 2}
+  hasDrop: 1
+  loot: {fileID: 1150287182165958, guid: 300471d5b2d00034cb1261b6adf84466, type: 2}
   _TEAM: 1
   moveSpeed: 2
   isShooter: 1

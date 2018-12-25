@@ -12,5 +12,6 @@ public class backgroundCleanup : MonoBehaviour {
         Vector3 a = birdspawn.position;
         a.y += Random.Range(-2.0f, 2.0f);
         collision.gameObject.transform.position = a;
+    
     }
 }

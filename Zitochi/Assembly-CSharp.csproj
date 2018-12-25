@@ -75,10 +75,10 @@
     <Compile Include="Assets\Art Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\Art Assets\JMO Assets\Cartoon FX\Scripts\CFX2_AutoRotate.cs" />
     <Compile Include="Assets\Art Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\backgroundCleanup.cs" />
-    <Compile Include="Assets\BirdMove.cs" />
     <Compile Include="Assets\Scripts\AICharacter.cs" />
     <Compile Include="Assets\Scripts\Ammo.cs" />
+    <Compile Include="Assets\Scripts\backgroundCleanup.cs" />
+    <Compile Include="Assets\Scripts\BirdMove.cs" />
     <Compile Include="Assets\Scripts\BreakableGround.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
@@ -91,11 +91,13 @@
     <Compile Include="Assets\Scripts\PhotonManager.cs" />
     <Compile Include="Assets\Scripts\PlayerNetworking.cs" />
     <Compile Include="Assets\Scripts\SeeEnemey.cs" />
+    <Compile Include="Assets\Scripts\SpawnCreep.cs" />
     <Compile Include="Assets\Scripts\Triggers\Consumable.cs" />
     <Compile Include="Assets\Scripts\Triggers\Effect.cs" />
     <Compile Include="Assets\Scripts\Triggers\WayPoint.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
-    <Compile Include="Assets\SpawnCreep.cs" />
+    <Compile Include="Assets\Smasher.cs" />
+    <Compile Include="Assets\SmasherTrigger.cs" />
     <None Include="Assets\Art Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Art Assets\Free Asset - 2D Handcrafted Art\Shader\NormalMappedTileAnimated.shader" />
     <None Include="Assets\Art Assets\Free Asset - 2D Handcrafted Art\Shader\NormalMappedSprite-Animated.shader" />
@@ -106,7 +108,7 @@
     <None Include="Assets\Art Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
     <None Include="Assets\Art Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAB_Alpha8.shader" />
     <None Include="Assets\Art Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
-    <None Include="Assets\FantasyEnvironments\Environments\README.txt" />
+    <None Include="Assets\Art Assets\FantasyEnvironments\Environments\README.txt" />
     <None Include="Assets\Art Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
     <None Include="Assets\Art Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
