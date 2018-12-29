@@ -68,21 +68,23 @@ public class Consumable : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (this.type == TYPE.COIN && (other.gameObject.tag == "Team1" || other.gameObject.tag == "Team2"))
+        if (this.type == TYPE.COIN && (other.gameObject.tag == "Team1" ))
         {
             print("Got  a Crystal");
             Instantiate(consumeEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
         if ((this.type == TYPE.HEAL || this.type== TYPE.COIN) && (other.gameObject.tag == "Bullet1" || 
-                other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot") ){
+                other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot" || other.gameObject.tag == "Team2") ){
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider, true);
         }
         else if (other.gameObject.tag == "powerShot") {
+            Instantiate(consumeEffect, transform.position, transform.rotation);
             other.GetComponent<Ammo>().powerUp(type);
             Destroy(this.gameObject);
         }
         
+        //
         if (this.type != TYPE.HEAL && (other.gameObject.tag == "Player" || 
                 other.gameObject.tag == "Team1" || other.gameObject.tag == "Team2")) {
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider,true);

@@ -17,6 +17,7 @@ public class Ammo : MonoBehaviour {
     public bool overHead;
     public int team;
     public bool aiAim;
+    public bool indestructable;
     public Transform aimPos;
     private IEnumerator coroutine;
 
@@ -100,15 +101,18 @@ public class Ammo : MonoBehaviour {
         }
         else
         {
-            if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot")
+           if (coll.gameObject.layer == 15 && indestructable) {
+                BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
+                bg.destroyGround();
+            }
+            else if (coll.gameObject.layer == 15 && this.gameObject.tag != "powerShot")
             {
                 BreakableGround bg = coll.gameObject.GetComponent<BreakableGround>();
                 bg.destroyGround();
                 Destroy(this.gameObject);
 
             }
-
-            if (coll.gameObject.tag == "Ground")
+            else  if (coll.gameObject.tag == "Ground")
             {
                 Instantiate(impactEffect, transform.position, transform.rotation);
                 Destroy(this.gameObject);
@@ -120,6 +124,10 @@ public class Ammo : MonoBehaviour {
             }
 
             else if (this.gameObject.tag == "powerShot" && c != null && c.type == Consumable.TYPE.HEAL)
+            {
+                Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
+            }
+            else if ( c != null && c.type == Consumable.TYPE.COIN)
             {
                 Physics2D.IgnoreCollision(coll.GetComponent<BoxCollider2D>(), this.GetComponent<Collider2D>(), true);
             }
