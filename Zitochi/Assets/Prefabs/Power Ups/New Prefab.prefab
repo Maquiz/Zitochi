@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 58380479207493268}
   - component: {fileID: 50605784543106664}
   - component: {fileID: 114344621535177684}
-  - component: {fileID: 199664453152554702}
-  - component: {fileID: 198002380408230228}
+  - component: {fileID: 199967691032683554}
+  - component: {fileID: 198351649837296912}
+  - component: {fileID: 114698946512256108}
   m_Layer: 13
   m_Name: New Prefab
   m_TagString: powerup
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1150287182165958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 105.77, y: 11.65, z: 1.9214163}
+  m_LocalPosition: {x: 109.77, y: 11.65, z: 1.9214163}
   m_LocalScale: {x: 0.17215021, y: 0.17215021, z: 0.17215021}
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,7 +106,25 @@ MonoBehaviour:
   respawnable: 0
   lifeTime: 0
   consumeEffect: {fileID: 100004, guid: 4c54fc89bdf1ce84faa509f7cefb2e8b, type: 2}
---- !u!198 &198002380408230228
+--- !u!114 &114698946512256108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150287182165958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
+--- !u!198 &198351649837296912
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4638,7 +4657,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199664453152554702
+--- !u!199 &199967691032683554
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -4710,7 +4729,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

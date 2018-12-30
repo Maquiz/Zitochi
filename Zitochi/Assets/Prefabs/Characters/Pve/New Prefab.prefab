@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 252691368899042956}
   - component: {fileID: 199240775706254398}
   - component: {fileID: 198104102525394672}
+  - component: {fileID: 114015657678191168}
   m_Layer: 9
   m_Name: New Prefab
   m_TagString: Team2
@@ -125,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817771520933760}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 166.99, y: 6.02, z: 0}
+  m_LocalPosition: {x: 56.25, y: 6.02, z: 0}
   m_LocalScale: {x: 0.74262, y: 0.74262, z: 0.74262}
   m_Children:
   - {fileID: 4169957930549022}
@@ -320,6 +321,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114015657678191168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817771520933760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0.1
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!114 &114042172077920202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5164,7 +5183,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

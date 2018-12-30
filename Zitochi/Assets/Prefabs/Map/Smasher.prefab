@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 50115573421272460}
   - component: {fileID: 114011653708403768}
   - component: {fileID: 61265865247560652}
+  - component: {fileID: 114256664967618856}
   m_Layer: 0
   m_Name: Mace
   m_TagString: Danger
@@ -266,6 +267,24 @@ MonoBehaviour:
   waitTime: 0.1
   hitTop: 0
   smashEffect: {fileID: 100008, guid: 15dd46549dc7e014d8e0c169a4b252a5, type: 2}
+--- !u!114 &114256664967618856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542424171333218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!114 &114832302737808318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,7 +357,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
