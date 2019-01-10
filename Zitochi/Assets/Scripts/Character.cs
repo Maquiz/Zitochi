@@ -200,7 +200,54 @@ public class Character : MonoBehaviour {
             isImmune = false;
         }
     }
-    public void getPower(TYPE t) {
+    public void getConsumePower(Consumable.TYPE t)
+    {
+        if (type1 == TYPE.WHITE)
+        {
+            switch (t)
+            {
+                case Consumable.TYPE.FIRE:
+                    type1 = TYPE.FIRE;
+                    break;
+                case Consumable.TYPE.EARTH:
+                    type1 = TYPE.EARTH;
+                    break;
+                case Consumable.TYPE.ICE:
+                    type1 = TYPE.ICE;
+                    break;
+                case Consumable.TYPE.POISION:
+                    type1 = TYPE.POISION;
+                    break;
+                case Consumable.TYPE.SPIRIT:
+                    type1 = TYPE.SPIRIT;
+                    break;
+            }
+
+        }
+        else
+        {
+            switch (t)
+            {
+                case Consumable.TYPE.FIRE:
+                    type2 = TYPE.FIRE;
+                    break;
+                case Consumable.TYPE.EARTH:
+                    type2 = TYPE.EARTH;
+                    break;
+                case Consumable.TYPE.ICE:
+                    type2 = TYPE.ICE;
+                    break;
+                case Consumable.TYPE.POISION:
+                    type2 = TYPE.POISION;
+                    break;
+                case Consumable.TYPE.SPIRIT:
+                    type2 = TYPE.SPIRIT;
+                    break;
+            }
+        }
+    }
+
+        public void getPower(TYPE t) {
         if (type1 == TYPE.WHITE) {
             switch (t) {
                 case TYPE.FIRE:

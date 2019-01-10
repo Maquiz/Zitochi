@@ -6,7 +6,7 @@ public class Smasher : MonoBehaviour {
     public float waitTime;
 
     private Rigidbody2D rb;
-    public bool hitTop;
+    public bool hitTop, hitGround;
     private IEnumerator coroutine;
     public GameObject smashEffect;
 
@@ -14,13 +14,13 @@ public class Smasher : MonoBehaviour {
     void Start () {
         rb = this.GetComponent<Rigidbody2D>();
         hitTop = false;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (hitTop == true)
+        if (hitTop == true )
         {
-            print("hit the ceiling");
 
             rb.gravityScale = 1f;
 
@@ -29,9 +29,6 @@ public class Smasher : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-     
-
         if (collision.gameObject.tag == "Ground" )
         {
             print("hit the ground");

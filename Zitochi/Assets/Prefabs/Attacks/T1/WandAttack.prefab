@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114585912905354428}
   - component: {fileID: 58454779060243032}
   - component: {fileID: 114423222768878746}
+  - component: {fileID: 114154000392880390}
   m_Layer: 13
   m_Name: WandAttack
   m_TagString: powerShot
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842616150786446}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.1269636, y: 1.0662777, z: 0}
+  m_LocalPosition: {x: 104.40172, y: 13.307927, z: 0}
   m_LocalScale: {x: 2.0915802, y: 2.2070458, z: 0.28036}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +80,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &114154000392880390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842616150786446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!114 &114423222768878746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +114,7 @@ MonoBehaviour:
   elements: []
   respawnable: 0
   lifeTime: 0
+  consumeEffect: {fileID: 0}
 --- !u!114 &114585912905354428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,6 +129,7 @@ MonoBehaviour:
   damage: 0
   lifeTime: 2
   shooter: {fileID: 0}
+  aiShoot: {fileID: 0}
   speed: 500
   impactEffect: {fileID: 1934504188981380, guid: 780d8c6bd5b722245b1dc3931f1fd654,
     type: 2}
@@ -117,6 +138,7 @@ MonoBehaviour:
   overHead: 0
   team: 1
   aiAim: 0
+  indestructable: 0
   aimPos: {fileID: 0}
 --- !u!212 &212433407177880696
 SpriteRenderer:
@@ -133,7 +155,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

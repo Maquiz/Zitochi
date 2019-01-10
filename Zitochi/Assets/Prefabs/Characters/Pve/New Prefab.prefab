@@ -54,10 +54,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4845340523030670}
   - component: {fileID: 114411988097756030}
-  - component: {fileID: 58324809957042994}
   - component: {fileID: 61893787019942072}
   - component: {fileID: 61632597441259642}
   - component: {fileID: 95538937669912342}
+  - component: {fileID: 58822735504812300}
   m_Layer: 4
   m_Name: Sense
   m_TagString: Untagged
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817771520933760}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 56.25, y: 6.02, z: 0}
+  m_LocalPosition: {x: 85.49, y: 6.02, z: 0}
   m_LocalScale: {x: 0.74262, y: 0.74262, z: 0.74262}
   m_Children:
   - {fileID: 4169957930549022}
@@ -195,13 +195,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58324809957042994
+--- !u!58 &58822735504812300
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544465337141206}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -209,7 +209,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.000000059604645, y: -0.00000011920929}
   serializedVersion: 2
-  m_Radius: 2.24
+  m_Radius: 16.33
 --- !u!61 &61363126659275454
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -266,7 +266,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544465337141206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   hasDrop: 1
   loot: {fileID: 1150287182165958, guid: 300471d5b2d00034cb1261b6adf84466, type: 2}
   _TEAM: 1
-  moveSpeed: 2
+  moveSpeed: 4
   isShooter: 1
   isTower: 0
   _aiController: {fileID: 95071896356844146}

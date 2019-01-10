@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114718662837938698}
   - component: {fileID: 96269544283569134}
   - component: {fileID: 60934768492006626}
+  - component: {fileID: 114929438455415950}
   m_Layer: 10
   m_Name: RockBasic
   m_TagString: Bullet1
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779476729307788}
   m_LocalRotation: {x: -0, y: -0, z: 0.90779644, w: -0.41941127}
-  m_LocalPosition: {x: 147.59232, y: 8.785765, z: 0}
+  m_LocalPosition: {x: 104.569145, y: 13.348143, z: 0}
   m_LocalScale: {x: 1.65546, y: 1.830744, z: 0.94916284}
   m_Children: []
   m_Father: {fileID: 0}
@@ -233,6 +234,7 @@ MonoBehaviour:
   damage: 15
   lifeTime: 1
   shooter: {fileID: 0}
+  aiShoot: {fileID: 0}
   speed: 1000
   impactEffect: {fileID: 1712995415837496, guid: ea2751f7a02c9c5489d54a97fbd878d9,
     type: 2}
@@ -241,7 +243,26 @@ MonoBehaviour:
   overHead: 0
   team: 1
   aiAim: 0
+  indestructable: 0
   aimPos: {fileID: 0}
+--- !u!114 &114929438455415950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779476729307788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0.25
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!212 &212565033846703444
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -257,7 +278,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d5510d53a0740714d8094e9574e424fe, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

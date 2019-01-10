@@ -58,9 +58,10 @@ public class AICharacter :  Character {
 
         }
         if (target != null) {
-            if (health < maxHealth && target != null)
+            if (health < maxHealth && target != null && seePlayer == false)
             {
                 seePlayer = true;
+
             }
             if (seePlayer)
             {
@@ -86,12 +87,13 @@ public class AICharacter :  Character {
                 }
 
                 
-                if (target.transform.position.x >= gameObject.transform.position.x && !isTower )
+                if (target.transform.position.x <= gameObject.transform.position.x && !isTower )
                 {
+                    print("flipped character true");
                     charSprite.flipX = true;
                     // transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
-                else if (isTower)
+                else if (target.transform.position.x >= gameObject.transform.position.x && !isTower)
                 {
                     charSprite.flipX = false;
                     // transform.localRotation = Quaternion.Euler(0, 180, 0);

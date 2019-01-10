@@ -60,7 +60,7 @@ public class Consumable : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         //Attempt at stopping collision with the powerups and players
-        if (this.type != TYPE.HEAL && (collision.gameObject.tag == "Player" || 
+        if (this.type != TYPE.HEAL && (//collision.gameObject.tag == "Player" || 
                 collision.gameObject.tag == "T1" || collision.gameObject.tag == "T2")) {
             Physics2D.IgnoreCollision(collision.collider, _collider, true);
 
@@ -78,10 +78,19 @@ public class Consumable : MonoBehaviour {
                 other.gameObject.tag == "Bullet1" || other.gameObject.tag == "powerShot" || other.gameObject.tag == "Team2") ){
             Physics2D.IgnoreCollision(other.GetComponent<BoxCollider2D>(), _collider, true);
         }
-        else if (other.gameObject.tag == "powerShot") {
-            Instantiate(consumeEffect, transform.position, transform.rotation);
-            other.GetComponent<Ammo>().powerUp(type);
-            Destroy(this.gameObject);
+        else if (other.gameObject.tag == "powerShot" || other.gameObject.tag == "Team1") {
+            if (other.gameObject.tag == "pwoershot")
+            {
+                Instantiate(consumeEffect, transform.position, transform.rotation);
+                other.GetComponent<Ammo>().powerUp(type);
+                Destroy(this.gameObject);
+            }
+            else {
+
+                Instantiate(consumeEffect, transform.position, transform.rotation);
+                other.GetComponent<Character>().getConsumePower(type);
+                Destroy(this.gameObject);
+            }
         }
         
         //

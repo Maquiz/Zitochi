@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50521240613622758}
   - component: {fileID: 114339910678547612}
   - component: {fileID: 58959379558842874}
+  - component: {fileID: 114574349303503592}
   m_Layer: 10
   m_Name: Bullet
   m_TagString: Bullet1
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637077020622660}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.9936085, y: 1.2232448, z: 0}
+  m_LocalPosition: {x: 103.084656, y: 13.685971, z: 0}
   m_LocalScale: {x: 1.2024035, y: 1.2024035, z: 1.2024035}
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,6 +93,7 @@ MonoBehaviour:
   damage: 10
   lifeTime: 1
   shooter: {fileID: 0}
+  aiShoot: {fileID: 0}
   speed: 1000
   impactEffect: {fileID: 1934504188981380, guid: 780d8c6bd5b722245b1dc3931f1fd654,
     type: 2}
@@ -100,7 +102,26 @@ MonoBehaviour:
   overHead: 0
   team: 1
   aiAim: 0
+  indestructable: 0
   aimPos: {fileID: 0}
+--- !u!114 &114574349303503592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637077020622660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9905a8d6f8584494ec6e19e049624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  _ColorLevel: 6
+  _EdgeSize: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!212 &212570928473421520
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,7 +137,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
