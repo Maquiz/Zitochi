@@ -10,7 +10,8 @@ namespace UnityStandardAssets._2D
         {
             if (other.tag == "Player" || other.tag == "Team1")
             {
-                SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+                other.transform.position =  new Vector3(22.3f, 30.2f, 0f);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }

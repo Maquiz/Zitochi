@@ -70,7 +70,7 @@ public class Consumable : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (this.type == TYPE.COIN && (other.gameObject.tag == "Team1" ))
         {
-            print("Got  a Crystal");
+           // print("Got  a Crystal");
             Instantiate(consumeEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }

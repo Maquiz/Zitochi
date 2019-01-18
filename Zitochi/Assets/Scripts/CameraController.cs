@@ -12,11 +12,13 @@ public class CameraController : MonoBehaviour {
 
     private void Start()
     {
-        target = GameObject.Find("Player").transform;
+       
     }
     // Update is called once per frame
     void Update()
-    {
+    {   if (target == null) {
+            target = GameObject.Find("PVE Player").transform;
+        }
         if (target)
         {
             Vector3 point = thisCamera.WorldToViewportPoint(target.position);

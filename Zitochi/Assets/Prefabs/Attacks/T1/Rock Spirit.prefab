@@ -183,9 +183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4d01cf58b2b564b8856bc94356bab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  lifeTime: 2
+  damage: 30
+  lifeTime: 4
   shooter: {fileID: 0}
+  aiShoot: {fileID: 0}
   speed: 500
   impactEffect: {fileID: 1537966463452004, guid: d0be3bdd8fc6e0f48a379ac3d97659c4,
     type: 2}
@@ -194,6 +195,7 @@ MonoBehaviour:
   overHead: 1
   team: 1
   aiAim: 0
+  indestructable: 0
   aimPos: {fileID: 0}
 --- !u!114 &114968821080526400
 MonoBehaviour:

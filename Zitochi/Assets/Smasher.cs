@@ -31,7 +31,7 @@ public class Smasher : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ground" )
         {
-            print("hit the ground");
+          //  print("hit the ground");
             rb.gravityScale = -.25f;
             hitTop = false;
             Instantiate(smashEffect, collision.transform.position, collision.transform.rotation);

@@ -202,7 +202,7 @@ MonoBehaviour:
   shooter: {fileID: 0}
   aiShoot: {fileID: 0}
   speed: 1000
-  impactEffect: {fileID: 1934504188981380, guid: 780d8c6bd5b722245b1dc3931f1fd654,
+  impactEffect: {fileID: 1712995415837496, guid: ea2751f7a02c9c5489d54a97fbd878d9,
     type: 2}
   isLooter: 0
   isParent: 1

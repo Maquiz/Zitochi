@@ -73,7 +73,7 @@ public class AICharacter :  Character {
                     //Need to make cooldown more dynamic
                     coroutine = cooldown(_cooldown);
                     StartCoroutine(coroutine);
-                    print(this.name +  " sees " + target.gameObject.name);
+                  //  print(this.name +  " sees " + target.gameObject.name);
                 }
 
                 if (target != null)

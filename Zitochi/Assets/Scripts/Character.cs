@@ -73,8 +73,28 @@ public class Character : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //Connect the UI to the new scene if possible
+        if (element1 == null) {
+           element1 = GameObject.Find("Element1").GetComponent<Image>();
+        }
+        if (element2 == null)
+        {
+            element2 = GameObject.Find("Element2").GetComponent<Image>();
+        }
+
+        if (cd1 == null)
+        {
+            cd1 = GameObject.Find("Cooldown1").GetComponent<Image>();
+        }
+        if (cd2 == null)
+        {
+            cd2 = GameObject.Find("Cooldown2").GetComponent<Image>();
+        }
+
+
+
         //CoolDowns
-        
+
         //Attack 1
         if (Input.GetButtonDown("Fire1") && canShoot1) {
             if (type1 == TYPE.EARTH) {
@@ -98,7 +118,7 @@ public class Character : MonoBehaviour {
         if (Input.GetButtonDown("Fire2") && canShoot2) {
             if (type2 == TYPE.WHITE) {
                 weapon.switchAmmo(0);
-                coroutine = cooldownFire(0.25f);
+                coroutine = cooldownFire(1.5f);
                 StartCoroutine(coroutine);
             }
             else if (type1 == TYPE.EARTH && type2 == TYPE.EARTH) {
@@ -154,6 +174,9 @@ public class Character : MonoBehaviour {
                 }
             }
         }
+        if (coll.gameObject.tag == "Danger") {
+            kill();
+        }
     }
 
     public void kill() {
@@ -161,7 +184,14 @@ public class Character : MonoBehaviour {
         Instantiate(deathEffect, transform.position, transform.rotation);
         if (isPlayer) {
             //This will be where we deal with players deaths
-            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+            transform.position = new Vector3(22.3f, 30.2f, 0f);
+            health = maxHealth;
+            ApplyDamage(0);
+            type1 = TYPE.WHITE;
+            type2 = TYPE.WHITE;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
         }
         else {
 
